@@ -11,9 +11,11 @@
  * @property string $state
  * @property string $date_offer_was_sent
  * @property string $amount
+ * @property string $tenure
  * @property string $sub_aggregators
  * @property string $date_loan_was_requested
  * @property string $beneficiaries_institution
+ * @property string $status
  * @property string $date_received
  */
 class UnacceptedLoans extends CActiveRecord
@@ -34,13 +36,14 @@ class UnacceptedLoans extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			//array('date_received', 'required'),
-			array('customer_name, phone_number, state, date_offer_was_sent, amount, date_loan_was_requested', 'length', 'max'=>45),
+			array('customer_name, phone_number, state, date_offer_was_sent, amount, date_loan_was_requested, date_received', 'length', 'max'=>45),
 			array('association, sub_aggregators', 'length', 'max'=>200),
+			array('tenure', 'length', 'max'=>20),
 			array('beneficiaries_institution', 'length', 'max'=>100),
+			array('status', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, customer_name, phone_number, association, state, date_offer_was_sent, amount, sub_aggregators, date_loan_was_requested, beneficiaries_institution, date_received', 'safe', 'on'=>'search'),
+			array('id, customer_name, phone_number, association, state, date_offer_was_sent, amount, tenure, sub_aggregators, date_loan_was_requested, beneficiaries_institution, status, date_received', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -68,9 +71,11 @@ class UnacceptedLoans extends CActiveRecord
 			'state' => 'State',
 			'date_offer_was_sent' => 'Date Offer Was Sent',
 			'amount' => 'Amount',
+			'tenure' => 'Tenure',
 			'sub_aggregators' => 'Sub Aggregators',
 			'date_loan_was_requested' => 'Date Loan Was Requested',
 			'beneficiaries_institution' => 'Beneficiaries Institution',
+			'status' => 'Status',
 			'date_received' => 'Date Received',
 		);
 	}
@@ -100,9 +105,11 @@ class UnacceptedLoans extends CActiveRecord
 		$criteria->compare('state',$this->state,true);
 		$criteria->compare('date_offer_was_sent',$this->date_offer_was_sent,true);
 		$criteria->compare('amount',$this->amount,true);
+		$criteria->compare('tenure',$this->tenure,true);
 		$criteria->compare('sub_aggregators',$this->sub_aggregators,true);
 		$criteria->compare('date_loan_was_requested',$this->date_loan_was_requested,true);
 		$criteria->compare('beneficiaries_institution',$this->beneficiaries_institution,true);
+		$criteria->compare('status',$this->status,true);
 		$criteria->compare('date_received',$this->date_received,true);
 
 		return new CActiveDataProvider($this, array(

@@ -55,20 +55,6 @@ class BoiController extends Controller
 		$model2->boi_id = $id;
         //$model2->member_id = $id;
 
-
-
-
-
-		
-		//$model2->comment_by =Yii::app()->user->id;
-
-		/*if(isset($_POST['ajax']) && $_POST['ajax']==='conversations-conversations-form')
-	    {
-	        echo CActiveForm::validate($model);
-	        Yii::app()->end();
-	    }*/
-	    
-
 	    if(isset($_POST['Conversations']))
 	    {
 	    	$model2->attributes=$_POST['Conversations'];

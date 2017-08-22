@@ -51,6 +51,16 @@
 		<?php echo $form->textField($model,'sub_aggregators',array('size'=>60,'maxlength'=>200)); ?>
 	</div>
 
+    <div class="row">
+        <?php echo $form->label($model,'tenure'); ?>
+        <?php echo $form->textField($model,'tenure',array('size'=>60,'maxlength'=>200)); ?>
+    </div>
+
+    <div class="row">
+        <?php echo $form->label($model,'status'); ?>
+        <?php echo $form->textField($model,'status',array('size'=>60,'maxlength'=>200)); ?>
+    </div>
+
 	<div class="row">
 		<?php echo $form->label($model,'date_loan_was_requested'); ?>
 		<?php echo $form->textField($model,'date_loan_was_requested',array('size'=>45,'maxlength'=>45)); ?>

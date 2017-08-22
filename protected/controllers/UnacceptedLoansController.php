@@ -28,7 +28,7 @@ class UnacceptedLoansController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','call','call_list'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -37,7 +37,7 @@ class UnacceptedLoansController extends Controller
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
+				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -51,9 +51,33 @@ class UnacceptedLoansController extends Controller
 	 */
 	public function actionView($id)
 	{
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));
+
+        $model2 = new UnacceptedLoansCalls;
+        //$model2->boi_id = $id;
+        //$model2->member_id = $id;
+
+        if(isset($_POST['UnacceptedLoansCalls']))
+        {
+            $model2->attributes=$_POST['UnacceptedLoansCalls'];
+            if($model2->validate())
+            {
+                if($model2->save()){
+                    //$this->redirect(array('view','id'=>$id));
+                    echo "<script> 
+                    alert('Successfully Submitted');
+                         </script>";
+                }else{}
+            }
+        }
+
+
+        $this->render('view',array(
+            'model'=>$this->loadModel($id),'model2'=>$model2,
+        ));
+
+//		$this->render('view',array(
+//			'model'=>$this->loadModel($id),
+//		));
 	}
 
 	/**
@@ -158,7 +182,37 @@ class UnacceptedLoansController extends Controller
 		return $model;
 	}
 
-	/**
+
+//    public function actionCall()
+//    {
+//        $model=new UnacceptedLoansCalls;
+//
+//        // Uncomment the following line if AJAX validation is needed
+//        // $this->performAjaxValidation($model);
+//
+//        if(isset($_POST['UnacceptedLoansCalls']))
+//        {
+//            $model->attributes=$_POST['UnacceptedLoansCalls'];
+//            if($model->save())
+//                $this->redirect(array('view','id'=>$model->id));
+//        }
+//
+//        $this->render('create',array(
+//            'model'=>$model,
+//        ));
+//    }
+
+    public function actionCall($id)
+    {
+        $model=new Conversations;
+        print_r($model);die();
+        // uncomment the following code to enable ajax-based validation
+
+
+        $this->render('UnacceptedLoansCalls',array('model'=>$model));
+    }
+
+    /**
 	 * Performs the AJAX validation.
 	 * @param UnacceptedLoans $model the model to be validated
 	 */

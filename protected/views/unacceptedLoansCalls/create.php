@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List UnacceptedLoansCalls', 'url'=>array('index')),
-	array('label'=>'Manage UnacceptedLoansCalls', 'url'=>array('admin')),
+	array('label'=>'List Unaccepted Loan Calls', 'url'=>array('index')),
+	array('label'=>'Manage Unaccepted Loan Calls', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create UnacceptedLoansCalls</h1>
+<h1>Create Unaccepted Loans Calls</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

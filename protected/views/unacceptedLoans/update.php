@@ -9,13 +9,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List UnacceptedLoans', 'url'=>array('index')),
-	array('label'=>'Create UnacceptedLoans', 'url'=>array('create')),
-	array('label'=>'View UnacceptedLoans', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage UnacceptedLoans', 'url'=>array('admin')),
+	array('label'=>'List Unaccepted Loans', 'url'=>array('index')),
+	array('label'=>'Create Unaccepted Loan', 'url'=>array('create')),
+	array('label'=>'View Unaccepted Loans', 'url'=>array('view', 'id'=>$model->id)),
+	array('label'=>'Manage Unaccepted Loans', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update UnacceptedLoans <?php echo $model->id; ?></h1>
+<h1>Update Unaccepted Loan <?php echo $model->id; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

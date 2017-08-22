@@ -7,8 +7,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create UnacceptedLoansCalls', 'url'=>array('create')),
-	array('label'=>'Manage UnacceptedLoansCalls', 'url'=>array('admin')),
+	array('label'=>'Create Unaccepted Loan Call', 'url'=>array('create')),
+	array('label'=>'Manage Unaccepted Loan Calls', 'url'=>array('admin')),
 );
 ?>
 

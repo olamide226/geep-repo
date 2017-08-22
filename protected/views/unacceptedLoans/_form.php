@@ -55,7 +55,14 @@
 		<?php echo $form->error($model,'amount'); ?>
 	</div>
 
-	<div class="row">
+    <div class="row">
+        <?php echo $form->labelEx($model,'tenure'); ?>
+        <?php echo $form->textField($model,'tenure',array('size'=>45,'maxlength'=>45)); ?>
+        <?php echo $form->error($model,'tenure'); ?>
+    </div>
+
+
+    <div class="row">
 		<?php echo $form->labelEx($model,'sub_aggregators'); ?>
 		<?php echo $form->textField($model,'sub_aggregators',array('size'=>60,'maxlength'=>200)); ?>
 		<?php echo $form->error($model,'sub_aggregators'); ?>
@@ -72,6 +79,12 @@
 		<?php echo $form->textField($model,'beneficiaries_institution',array('size'=>60,'maxlength'=>100)); ?>
 		<?php echo $form->error($model,'beneficiaries_institution'); ?>
 	</div>
+
+    <div class="row">
+        <?php echo $form->labelEx($model,'status'); ?>
+        <?php echo $form->textField($model,'status',array('size'=>45,'maxlength'=>45)); ?>
+        <?php echo $form->error($model,'status'); ?>
+    </div>
 
 <!--	<div class="row">-->
 <!--		--><?php //echo $form->labelEx($model,'date_received'); ?>

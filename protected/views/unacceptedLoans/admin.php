@@ -8,7 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List UnacceptedLoans', 'url'=>array('index')),
+    array('label'=>'Back', 'url'=>array('boi/admin')),
+	array('label'=>'List Unaccepted Loans', 'url'=>array('index')),
 	//array('label'=>'Create UnacceptedLoans', 'url'=>array('create')),
 );
 
@@ -51,6 +52,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'association',
 		'state',
 		'date_offer_was_sent',
+        'status',
         'date_loan_was_requested',
         'date_received',
 		/*

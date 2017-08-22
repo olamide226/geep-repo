@@ -18,8 +18,8 @@ if(Yii::app()->user->id=='admin') {
         array('label' => 'MarketMoni Registration', 'url' => array('casetwo/create')),
         array('label' => 'Enquiries', 'url' => array('enquiry/create')),
         array('label' => 'Micro-finance Banks', 'url' => array('mfb/admin')),
-        array('label' => 'Unaccepted Loans', 'url' => array('unacceptedloans/admin')),
-        array('label' => 'Unaccepted Loan Calls', 'url' => array('unacceptedloanscalls/admin')),
+        array('label' => '(Outgoing Calls) Unaccepted Loans', 'url' => array('unacceptedloans/admin')),
+        array('label' => '(Outgoing Calls) View my Calls', 'url' => array('unacceptedloanscalls/admin')),
       //  array('label' => 'Generate Ticket', 'url' => array('tickets/create')),
 
 );
@@ -34,6 +34,8 @@ else if(Yii::app()->user->id=='Cynthia_Onwumah' ||Yii::app()->user->id== 'Isaac_
         array('label' => 'MarketMoni Registration', 'url' => array('casetwo/create')),
         array('label' => 'Enquiries', 'url' => array('enquiry/create')),
         array('label' => 'Micro-finance Banks', 'url' => array('mfb/admin')),
+        array('label' => '(Outgoing Calls) Unaccepted Loans', 'url' => array('unacceptedloans/admin')),
+        array('label' => '(Outgoing Calls) View my Calls', 'url' => array('unacceptedloanscalls/admin')),
        // array('label' => 'Generate Ticket', 'url' => array('tickets/create')),
     );
 }
@@ -43,6 +45,8 @@ else{
         array('label'=>'My Loans & Rec comments', 'url'=>array('conversations/admin')),
         array('label' => 'MarketMoni Registration', 'url' => array('casetwo/create')),
         array('label' => 'Enquiries', 'url' => array('enquiry/create')),
+        array('label' => '(Outgoing Calls) Unaccepted Loans', 'url' => array('unacceptedloans/admin')),
+        array('label' => '(Outgoing Calls) View my Calls', 'url' => array('unacceptedloanscalls/admin')),
       //  array('label' => 'Generate Ticket', 'url' => array('tickets/create')),
 
        // array('label' => 'Micro-finance Banks', 'url' => array('mfb/admin')),
@@ -71,19 +75,6 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 
 
 <br/>
-<?php
-if(Yii::app()->user->id=='admin' || Yii::app()->user->id=='Cynthia_Onwumah' ||Yii::app()->user->id== 'Isaac_Fasoyin' ){
-    echo CHtml::button("Export Today's Loans & Rec Report", array('submit' => array('boi/excelDaily')));
-     echo'<br/>';
-    echo'<br/>';
-echo CHtml::button('Export all Loans & Rec Reports', array('submit' => array('boi/excel')));
-}
-?>
-<br/>
-<br/>
-
-
-
 <?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
@@ -146,3 +137,16 @@ echo CHtml::button('Export all Loans & Rec Reports', array('submit' => array('bo
 
 	),
 )); ?>
+<br/>
+
+<?php
+if(Yii::app()->user->id=='admin' || Yii::app()->user->id=='Cynthia_Onwumah' ||Yii::app()->user->id== 'Isaac_Fasoyin' ){
+    echo CHtml::button("Export Today's Loans & Rec Report", array('submit' => array('boi/excelDaily')));
+    echo'<br/>';
+    echo'<br/>';
+    echo CHtml::button('Export all Loans & Rec Reports', array('submit' => array('boi/excel')));
+}
+?>
+
+
+

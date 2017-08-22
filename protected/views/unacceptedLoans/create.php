@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Create UnacceptedLoans</h1>
+<h1>Create Unaccepted Loans</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

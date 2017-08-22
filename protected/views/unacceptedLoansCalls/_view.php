@@ -33,7 +33,10 @@
 	<?php echo CHtml::encode($data->amount); ?>
 	<br />
 
-	<?php /*
+    <b><?php echo CHtml::encode($data->getAttributeLabel('tenure')); ?>:</b>
+    <?php echo CHtml::encode($data->tenure); ?>
+    <br />
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('sub_aggregators')); ?>:</b>
 	<?php echo CHtml::encode($data->sub_aggregators); ?>
 	<br />
@@ -45,6 +48,10 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('beneficiaries_institution')); ?>:</b>
 	<?php echo CHtml::encode($data->beneficiaries_institution); ?>
 	<br />
+
+    <b><?php echo CHtml::encode($data->getAttributeLabel('status')); ?>:</b>
+    <?php echo CHtml::encode($data->status); ?>
+    <br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('date_received')); ?>:</b>
 	<?php echo CHtml::encode($data->date_received); ?>
@@ -70,6 +77,6 @@
 	<?php echo CHtml::encode($data->created_by); ?>
 	<br />
 
-	*/ ?>
+
 
 </div>

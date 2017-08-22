@@ -32,13 +32,13 @@ class UnacceptedLoansCallsController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','admin'),
 				'users'=>array('@'),
 			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
-			),
+            array('allow', // allow admin user to perform 'admin' and 'delete' actions
+                'actions'=>array('delete','excel','excelDaily'),
+                'users'=>array('admin','Cynthia_Onwumah','Isaac_Fasoyin'),
+            ),
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
@@ -135,6 +135,7 @@ class UnacceptedLoansCallsController extends Controller
 	{
 		$model=new UnacceptedLoansCalls('search');
 		$model->unsetAttributes();  // clear any default values
+        $model->created_by =Yii::app()->user->id;
 		if(isset($_GET['UnacceptedLoansCalls']))
 			$model->attributes=$_GET['UnacceptedLoansCalls'];
 
@@ -157,7 +158,34 @@ class UnacceptedLoansCallsController extends Controller
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
 	}
+    public function actionExcel()
+    {
+        Yii::import('ext.ECSVExport');
+        $dataProvider = new CActiveDataProvider('UnacceptedLoansCalls');
+        $csv = new ECSVExport($dataProvider);
+        $output = $csv->toCSV();
+        Yii::app()->getRequest()->sendFile("fullLoanCallsReport.csv", $output, true);
 
+
+    }
+    public function actionExcelDaily()
+    {
+        $date = date('Y-m-d');
+
+//        $date=new DateTime(); //this returns the current date time
+//        $result = $date->format('d-m-Y');
+//        $krr = explode('-',$result);
+//        $result = implode("-",$krr);
+
+        Yii::import('ext.ECSVExport');
+        $dataProvider=new CActiveDataProvider('UnacceptedLoansCalls' ,array('criteria'=>array( 'condition'=>'LEFT(created_on,10)="'.$date.'"')));
+
+        $csv = new ECSVExport($dataProvider);
+        $output = $csv->toCSV();
+        Yii::app()->getRequest()->sendFile("dailyLoanCallsReport.csv", $output, true);
+
+
+    }
 	/**
 	 * Performs the AJAX validation.
 	 * @param UnacceptedLoansCalls $model the model to be validated

@@ -58,41 +58,41 @@
 
     <div class="row">
         <?php echo $form->labelEx($model,'customer_name'); ?>
-        <!--        --><?php //echo $form->textField($model,'customer_name',array('size'=>45,'maxlength'=>45)); ?>
-        <?php echo $form->textField($model,'customer_name',array('readonly'=>'true','class'=>'form-control')); ?>
+<!--        --><?php //echo $form->textField($model,'customer_name',array('size'=>45,'maxlength'=>45)); ?>
+        <?php echo $form->textField($model,'customer_name',array('value'=>$model2->customer_name,'readonly'=>'true','class'=>'form-control')); ?>
 
         <?php echo $form->error($model,'customer_name'); ?>
     </div>
 
     <div class="row">
         <?php echo $form->labelEx($model,'phone_number'); ?>
-        <!--        --><?php //echo $form->textField($model,'phone_number',array('size'=>45,'maxlength'=>45)); ?>
-        <?php echo $form->textField($model,'phone_number',array('readonly'=>'true','class'=>'form-control')); ?>
+<!--        --><?php //echo $form->textField($model,'phone_number',array('size'=>45,'maxlength'=>45)); ?>
+        <?php echo $form->textField($model,'phone_number',array('value'=>$model2->phone_number,'readonly'=>'true','class'=>'form-control')); ?>
 
         <?php echo $form->error($model,'phone_number'); ?>
     </div>
 
     <div class="row">
         <?php echo $form->labelEx($model,'association'); ?>
-        <!--        --><?php //echo $form->textField($model,'association',array('size'=>60,'maxlength'=>200)); ?>
-        <?php echo $form->textField($model,'association',array('readonly'=>'true','class'=>'form-control')); ?>
+<!--        --><?php //echo $form->textField($model,'association',array('size'=>60,'maxlength'=>200)); ?>
+        <?php echo $form->textField($model,'association',array('value'=>$model2->association,'readonly'=>'true','class'=>'form-control')); ?>
 
         <?php echo $form->error($model,'association'); ?>
     </div>
 
     <div class="row">
         <?php echo $form->labelEx($model,'state'); ?>
-        <!--        --><?php //echo $form->textField($model,'state',array('size'=>45,'maxlength'=>45)); ?>
-        <?php echo $form->textField($model,'state',array('readonly'=>'true','class'=>'form-control')); ?>
+<!--        --><?php //echo $form->textField($model,'state',array('size'=>45,'maxlength'=>45)); ?>
+        <?php echo $form->textField($model,'state',array('value'=>$model2->state,'readonly'=>'true','class'=>'form-control')); ?>
 
         <?php echo $form->error($model,'state'); ?>
     </div>
 
     <div class="row">
         <?php echo $form->labelEx($model,'date_offer_was_sent'); ?>
-        <!--        --><?php //echo $form->textField($model,'date_offer_was_sent',array('size'=>45,'maxlength'=>45)); ?>
+<!--        --><?php //echo $form->textField($model,'date_offer_was_sent',array('size'=>45,'maxlength'=>45)); ?>
 
-        <?php echo $form->textField($model,'date_offer_was_sent',array('readonly'=>'true','class'=>'form-control')); ?>
+        <?php echo $form->textField($model,'date_offer_was_sent',array('value'=>$model2->date_offer_was_sent,'readonly'=>'true','class'=>'form-control')); ?>
 
 
         <?php echo $form->error($model,'date_offer_was_sent'); ?>
@@ -100,8 +100,8 @@
 
     <div class="row">
         <?php echo $form->labelEx($model,'amount'); ?>
-        <!--        --><?php //echo $form->textField($model,'amount',array('size'=>45,'maxlength'=>45)); ?>
-        <?php echo $form->textField($model,'amount',array('readonly'=>'true','class'=>'form-control')); ?>
+<!--        --><?php //echo $form->textField($model,'amount',array('size'=>45,'maxlength'=>45)); ?>
+        <?php echo $form->textField($model,'amount',array('value'=>$model2->amount,'readonly'=>'true','class'=>'form-control')); ?>
 
         <?php echo $form->error($model,'amount'); ?>
     </div>
@@ -109,15 +109,15 @@
     <div class="row">
         <?php echo $form->labelEx($model,'tenure'); ?>
         <!--        --><?php //echo $form->textField($model,'amount',array('size'=>45,'maxlength'=>45)); ?>
-        <?php echo $form->textField($model,'tenure',array('readonly'=>'true','class'=>'form-control')); ?>
+        <?php echo $form->textField($model,'tenure',array('value'=>$model2->tenure,'readonly'=>'true','class'=>'form-control')); ?>
 
         <?php echo $form->error($model,'tenure'); ?>
     </div>
 
     <div class="row">
         <?php echo $form->labelEx($model,'sub_aggregators'); ?>
-        <!--        --><?php //echo $form->textField($model,'sub_aggregators',array('size'=>60,'maxlength'=>200)); ?>
-        <?php echo $form->textField($model,'sub_aggregators',array('readonly'=>'true','class'=>'form-control')); ?>
+<!--        --><?php //echo $form->textField($model,'sub_aggregators',array('size'=>60,'maxlength'=>200)); ?>
+        <?php echo $form->textField($model,'sub_aggregators',array('value'=>$model2->sub_aggregators,'readonly'=>'true','class'=>'form-control')); ?>
 
 
         <?php echo $form->error($model,'sub_aggregators'); ?>
@@ -125,9 +125,9 @@
 
     <div class="row">
         <?php echo $form->labelEx($model,'date_loan_was_requested'); ?>
-        <!--        --><?php //echo $form->textField($model,'date_loan_was_requested',array('size'=>45,'maxlength'=>45)); ?>
+<!--        --><?php //echo $form->textField($model,'date_loan_was_requested',array('size'=>45,'maxlength'=>45)); ?>
 
-        <?php echo $form->textField($model,'date_loan_was_requested',array('readonly'=>'true','class'=>'form-control')); ?>
+        <?php echo $form->textField($model,'date_loan_was_requested',array('value'=>$model2->date_loan_was_requested,'readonly'=>'true','class'=>'form-control')); ?>
 
 
         <?php echo $form->error($model,'date_loan_was_requested'); ?>
@@ -135,9 +135,9 @@
 
     <div class="row">
         <?php echo $form->labelEx($model,'beneficiaries_institution'); ?>
-        <!--        --><?php //echo $form->textField($model,'beneficiaries_institution',array('size'=>60,'maxlength'=>100)); ?>
+<!--        --><?php //echo $form->textField($model,'beneficiaries_institution',array('size'=>60,'maxlength'=>100)); ?>
 
-        <?php echo $form->textField($model,'beneficiaries_institution',array('readonly'=>'true','class'=>'form-control')); ?>
+        <?php echo $form->textField($model,'beneficiaries_institution',array('value'=>$model2->beneficiaries_institution,'readonly'=>'true','class'=>'form-control')); ?>
 
         <?php echo $form->error($model,'beneficiaries_institution'); ?>
     </div>
@@ -145,15 +145,15 @@
     <div class="row">
         <?php echo $form->labelEx($model,'status'); ?>
         <!--        --><?php //echo $form->textField($model,'amount',array('size'=>45,'maxlength'=>45)); ?>
-        <?php echo $form->textField($model,'status',array('readonly'=>'true','class'=>'form-control')); ?>
+        <?php echo $form->textField($model,'status',array('value'=>$model2->status,'readonly'=>'true','class'=>'form-control')); ?>
 
         <?php echo $form->error($model,'status'); ?>
     </div>
 
     <div class="row">
         <?php echo $form->labelEx($model,'date_received'); ?>
-        <!--        --><?php //echo $form->textField($model,'date_received',array('size'=>50,'maxlength'=>50)); ?>
-        <?php echo $form->textField($model,'date_received',array('readonly'=>'true','class'=>'form-control')); ?>
+<!--        --><?php //echo $form->textField($model,'date_received',array('size'=>50,'maxlength'=>50)); ?>
+        <?php echo $form->textField($model,'date_received',array('value'=>$model2->date_received,'readonly'=>'true','class'=>'form-control')); ?>
 
         <?php echo $form->error($model,'date_received'); ?>
     </div>
