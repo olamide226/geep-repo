@@ -41,7 +41,7 @@ class UnacceptedLoansCalls extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('comment, interest', 'required'),
+			array('comment, interest, call_duration', 'required'),
 			array('customer_name, phone_number, state, date_offer_was_sent, amount, date_loan_was_requested', 'length', 'max'=>45),
 			array('association, sub_aggregators, agent_comment', 'length', 'max'=>200),
 			array('tenure', 'length', 'max'=>20),
@@ -89,6 +89,7 @@ class UnacceptedLoansCalls extends CActiveRecord
 			'agent_comment' => 'Agent Comment',
 			'created_on' => 'Created On',
 			'created_by' => 'Created By',
+            'call_duration'=>'Call Duration',
 		);
 	}
 
@@ -128,6 +129,9 @@ class UnacceptedLoansCalls extends CActiveRecord
 		$criteria->compare('agent_comment',$this->agent_comment,true);
 		$criteria->compare('created_on',$this->created_on,true);
 		$criteria->compare('created_by',$this->created_by,true);
+        $criteria->compare('call_duration',$this->call_duration,true);
+
+
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

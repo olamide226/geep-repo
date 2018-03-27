@@ -62,7 +62,7 @@ class UnacceptedLoansController extends Controller
             if($model2->validate())
             {
                 if($model2->save()){
-                    //$this->redirect(array('view','id'=>$id));
+                    $this->redirect(array('view','id'=>$id));
                     echo "<script> 
                     alert('Successfully Submitted');
                          </script>";

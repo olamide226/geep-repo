@@ -187,7 +187,7 @@ class CasetwoController extends Controller
 
         $csv = new ECSVExport($dataProvider);
         $output = $csv->toCSV();
-        Yii::app()->getRequest()->sendFile("dailyMarketMoniReport.csv", $output, true);
+        Yii::app()->getRequest()->sendFile("dailyDTAReport.csv", $output, true);
 
 
     }

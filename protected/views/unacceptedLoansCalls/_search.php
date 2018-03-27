@@ -81,6 +81,11 @@
 		<?php echo $form->textField($model,'agent_comment',array('size'=>60,'maxlength'=>200)); ?>
 	</div>
 
+    <div class="row">
+        <?php echo $form->label($model,'call_duration'); ?>
+        <?php echo $form->textField($model,'call_duration',array('size'=>60,'maxlength'=>60)); ?>
+    </div>
+
 	<div class="row">
 		<?php echo $form->label($model,'created_on'); ?>
 		<?php echo $form->textField($model,'created_on'); ?>

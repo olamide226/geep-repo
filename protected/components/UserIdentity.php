@@ -19,20 +19,31 @@ class UserIdentity extends CUserIdentity
 	{
 		$users=array(
 			// username => password
-			//'demo'=>'demo',
+			'demo'=>'demo',
 			'admin'=>'b!nc0m@dm!n',
-           'Cynthia_Onwumah'=>'wtfkb',
+           //'Cynthia_Onwumah'=>'wtfkb',
+		    'Andrew_Wya'=>'cfthn',
             'Yetunde_Taiwo'=>'asdfg',
-            'Bukola_Taiwo'=>'zxcvb',
-           'Tobi_Aroyewun'=>'poiuy',
-            'Blessing_Adebanjo'=>'lkjhg',
+            //'Bukola_Taiwo'=>'zxcvb',
+            //'Tobi_Aroyewun'=>'poiuy',
+            //'Blessing_Adebanjo'=>'lkjhg',
+			//'Faith_Oghenefejiro'=>'ertyu',
+			'Benedicta_Onoja'=>'awdrg',
+			'Olarotimi_Salami'=>'kjhgf',
             'Isaac_Fasoyin'=>'mnbvc',
-            'Rosemary_Omiwale'=>'qazxc',
-            'Susan_Amadi'=>'plmnb',
+			'Elizabeth_Yabuwat'=>'qwert',
+			'Okusanya_Tobi'=>'dfghj',
+			'Okonkwo_Hope'=>'iuytr',
+            //'Rosemary_Omiwale'=>'qazxc',
+            //'Susan_Amadi'=>'plmnb',
             'office_test'=>'@3b!sp@ss',
 			//'Kalu_Ifeanyi'=>'n3wp@ss',
-			'Felix_Ogbonna'=>'b0lix',
+			//'Felix_Ogbonna'=>'b0lix',
 			'Peace_Nyah'=>'M3P@$$',
+			'Filani_Daniel'=>'xcvbn',
+			'Adeyemi_Oluwaseun'=>'vgyjm',
+			'Ologunde_Oluwakemi'=>'wdrth',
+			
 		);
 		if(!isset($users[$this->username]))
 			$this->errorCode=self::ERROR_USERNAME_INVALID;

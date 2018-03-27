@@ -69,7 +69,12 @@
 	<?php echo CHtml::encode($data->agent_comment); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('created_on')); ?>:</b>
+    <b><?php echo CHtml::encode($data->getAttributeLabel('call_duration')); ?>:</b>
+    <?php echo CHtml::encode($data->call_duration); ?>
+    <br />
+
+
+    <b><?php echo CHtml::encode($data->getAttributeLabel('created_on')); ?>:</b>
 	<?php echo CHtml::encode($data->created_on); ?>
 	<br />
 

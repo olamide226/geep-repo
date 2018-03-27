@@ -27,6 +27,7 @@
                 "Did not receive the loan offer SMS."=>"Did not receive the loan offer SMS.",
                 "Received the loan offer SMS but did not understand what to do."=>"Received the loan offer SMS but did not understand what to do.",
                 "Understand the SMS, but had difficulty responding (USSD)."=>"Understand the SMS, but had difficulty responding (USSD).",
+                "Number not available"=>"Number not available",
                 "Others"=>"Others",
 
             )
@@ -52,6 +53,14 @@
         <?php echo $form->textArea($model,'agent_comment',array('class'=>'form-control')); ?>
 
         <?php echo $form->error($model,'agent_comment'); ?>
+    </div>
+
+
+    <div class="row">
+        <?php echo $form->labelEx($model,'call_duration'); ?>
+        <?php echo $form->textField($model,'call_duration',array('class'=>'form-control')); ?>
+
+        <?php echo $form->error($model,'call_duration'); ?>
     </div>
 
 

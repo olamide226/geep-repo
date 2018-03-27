@@ -9,7 +9,8 @@ $this->pageTitle=Yii::app()->name;
 <a href="?r=boi/index"><button>Registered Customers</button></a>
 <br/><br/>
 <a href="?r=boi/admin"><button> Loans & Reconciliation</button></a> <span>    -    </span>
-<a href="?r=casetwo/create"><button> MarketMoni Registration </button></a><span>    -    </span>
+<!--<a href="?r=casetwo/create"><button> MarketMoni Registration </button></a><span>    -    </span>  -->
+<a href="?r=casetwo/create"><button> DTA Registration </button></a><span>    -    </span>
 <a href="?r=enquiry/create"><button> Enquiries </button></a>
 
 <!-- <p>Congratulations! You have successfully created your Yii application.</p>

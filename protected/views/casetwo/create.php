@@ -10,10 +10,10 @@ $this->breadcrumbs=array(
 $this->menu=array(
     array('label'=>'Back', 'url'=>array('boi/admin')),
 	//array('label'=>'List MarketMoni Registrations', 'url'=>array('index')),
-	array('label'=>'Manage MarketMoni Registrations', 'url'=>array('admin')),
+	array('label'=>'Manage DTA Registrations', 'url'=>array('admin')),
 );
 ?>
 
-<h1>New MarketMoni Registration</h1>
+<h1>New DTA Registration</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

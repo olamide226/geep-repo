@@ -37,6 +37,7 @@ $this->menu=array(
 		'comment',
 		'interest',
 		'agent_comment',
+		'call_duration',
 		'created_on',
 		'created_by',
 	),

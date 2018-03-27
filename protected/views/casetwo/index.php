@@ -3,16 +3,16 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'MarketMoni Registrations',
+	'DTA Registrations',
 );
 
 $this->menu=array(
-	array('label'=>'Create new MarketMoni Registration', 'url'=>array('create')),
-	array('label'=>'Manage MarketMoni Registrations', 'url'=>array('admin')),
+	array('label'=>'Create new DTA Registration', 'url'=>array('create')),
+	array('label'=>'Manage DTA Registrations', 'url'=>array('admin')),
 );
 ?>
 
-<h1>MarketMoni Registrations</h1>
+<h1>DTA Registrations</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

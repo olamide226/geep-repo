@@ -140,7 +140,7 @@
                 "There is excess charge on customer's account."=>"There is excess charge on customer's account.",
                 "Unable to contact agent."=>"Unable to contact agent.",
                 "Customer requested for BOI account details to make payment."=>"Customer requested for BOI account details to make payment.",
-                "Customer claims agent does not want to release the ATM."=>"Customer claims agent does not want to release the ATM.",
+                "Customer claims agent does not want to release the ATM card."=>"Customer claims agent does not want to release the ATM card.",
                 "Customer was not able to withdraw the money on time."=>"Customer was not able to withdraw the money on time.",
                 "Customer requested for an alert on each payment made."=>"Customer requested for an alert on each payment made.",
                 "Customer keeps on getting text messages for defaulting without having access to the loan."=>"Customer keeps on getting text messages for defaulting without having access to the loan.",
@@ -160,7 +160,20 @@
                 "Unable to pay into the Sterling bank account."=>"Unable to pay into the Sterling bank account.",
                 "Customer has not had access to the loan, agent has been trading with customer's loan on customer's behalf."=>"Customer has not had access to the loan, agent has been trading with customer's loan on customer's behalf.",
                 "Customer requested for an  extension of payment."=>"Customer requested for an  extension of payment.",
-
+				"ATM card pin is invalid."=>"ATM card pin is invalid.",
+				"Account number does not exist."=>"Account number does not exist.",
+				"Loan is in ledger account."=>"Loan is in ledger account.",
+				"Customer is not interested in the loan after disbursement."=>"Customer is not interested in the loan after disbursement.",
+				"Customer wants to change phone number."=>"Customer wants to change phone number.",
+				"Loan disbursed but not in customer's bank account." => "Loan disbursed but not in customer's bank account.",
+				"Loan offer rejected." => "Loan offer rejected.",
+				"Customer's loan request disqualified and denied." => "Customer's loan request disqualified and denied.",
+				"Customer called to confirm Payment." => "Customer called to confirm Payment.",
+				"Customer has received the loan." => "Customer has received the loan.",
+				"Customer wants to know if monthly payment can be made." => "Customer wants to know if monthly payment can be made.",
+				"Customer requested for personal account number." => "Customer requested for personal account number.",
+				
+				
             )
             ,array('class'=>'form-control')); ?>
         <?php echo $form->error($model,'comment'); ?>

@@ -77,30 +77,21 @@
         <?php echo $form->labelEx($model,'complaints'); ?>
         <?php echo $form->dropDownList($model,'complaints', array(
                 ""=>"",
-                "Not interested in the loan but still getting text from BOI "=>"Not interested in the loan but still getting text from BOI ",
-                "Some members are not interested in the loan."=>"Some members are not interested in the loan.",
-                "Customer has submitted the form a while ago but is yet to get the loan."=>"Customer has submitted the form a while ago but is yet to get the loan.",
                 "Customer wants to know the gain to the association if they register their members."=>"Customer wants to know the gain to the association if they register their members.",
-                "Customer wants to know when the loan will be disbursed."=>"Customer wants to know when the loan will be disbursed.",
-                "Customer wants to know if the money would be paid into individual accounts."=>"Customer wants to know if the money would be paid into individual accounts.",
-                "Customer wants to know the interest rate on the loan."=>"Customer wants to know the interest rate on the loan.",
-                "Customer wants to know the tenure for the loan."=>"Customer wants to know the tenure for the loan.",
-                "Customer wants to know why BVN is required."=>"Customer wants to know why BVN is required.",
+                "Customer wants to know if the money would be paid into individual accounts."=>"Customer wants to know if the money would be paid into individual accounts.",           
                 "Customer wants to know maximum and minimum number of members that can apply."=>"Customer wants to know maximum and minimum number of members that can apply.",
                 "Customer wants to know the maximum and minimum amount a member can apply for."=>"Customer wants to know the maximum and minimum amount a member can apply for.",
                 "Customer wants the criteria for application"=>"Customer wants the criteria for application",
                 "Customer wants to know how to identify genuine BOI agent"=>"Customer wants to know how to identify genuine BOI agent",
                 "Customer wants to know if an individual can apply for the loan without being a member of an association"=>"Customer wants to know if an individual can apply for the loan without being a member of an association",
                 "Customer wants to know if they can make monthly payments?"=>"Customer wants to know if they can make monthly payments?",
-                "Customer wants to know if the loan range can be increased"=>"Customer wants to know if the loan range can be increased",
-                "Call dropped before customer could lay complains"=>"Call dropped before customer could lay complains",
+                "Call dropped before customer could lay complaints"=>"Call dropped before customer could lay complaints",
                 "Customer wants to know BOI's office location"=>"Customer wants to know BOI's office location",
                 "Request for personal account number by Customer"=>"Request for personal account number by Customer",
-                "Can one apply in two different associations?"=>"Can one apply in two different associations?",
-                "Customer's bank is not on the listed banks eligible for application"=>"Customer's bank is not on the listed banks eligible for application",
-
-
-
+                "Can an individual apply in two different associations?"=>"Can an individual apply in two different associations?",
+                "Customer's bank is not on the listed banks eligible for application"=>"Customer's bank is not on the listed banks eligible for application",               
+				"Unable to access customer's details with the phone number provided."=>"Unable to access customer's details with the phone number provided." ,
+				"Customer got a message from BOI to correct BVN" => "Customer got a message from BOI to correct BVN"
             )
             ,array('class'=>'form-control')); ?>
         <?php echo $form->error($model,'complaints'); ?>

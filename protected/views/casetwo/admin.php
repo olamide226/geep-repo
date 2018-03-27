@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List MarketMoni Registrations', 'url'=>array('index')),
-	array('label'=>'New MarketMoni Registration', 'url'=>array('create')),
+	array('label'=>'List DTA Registrations', 'url'=>array('index')),
+	array('label'=>'New DTA Registration', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage MarketMoni Registrations</h1>
+<h1>Manage DTA Registrations</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
