@@ -29,12 +29,12 @@ class Conversations extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('boi_id, comment, comment_by, date,source,categories,member_id', 'required'),
+			array('boi_id, comment, ticket_number,comment_by, date,source,categories,member_id', 'required'),
 			array('boi_id,amount', 'numerical','min'=>0),
-			array('comment_by, date, phone_number, agent_name, date_paid,member_id,other_comments,fraud_suspected', 'length', 'max'=>255),
+			array('comment_by, date, phone_number, agent_name, ticket_number, date_paid,member_id,other_comments,fraud_suspected', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, boi_id, comment, comment_by, date, created_on, phone_number,member_id,other_comments,fraud_suspected', 'safe', 'on'=>'search'),
+			array('id, boi_id, ticket_number, comment, comment_by, date, created_on, phone_number,member_id,other_comments,fraud_suspected', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -57,6 +57,7 @@ class Conversations extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'boi_id' => 'Boi_id',
+			'ticket_number' => 'Ticket Number',
 			'comment' => 'Comment',
 			'comment_by' => 'Comment By',
 			'date' => 'Date',
@@ -70,6 +71,7 @@ class Conversations extends CActiveRecord
             'member_id'=>'Member Id',
             'other_comments'=>'Other Comments',
             'fraud_suspected'=>'Fraud Suspected',
+			'action' => 'Action',
 		);
 	}
 
@@ -100,11 +102,13 @@ class Conversations extends CActiveRecord
 		$criteria->compare('date',$this->date,true);
 		$criteria->compare('created_on',$this->created_on,true);
         $criteria->compare('phone_number',$this->phone_number,true);
+        $criteria->compare('ticket_number',$this->ticket_number,true);
         $criteria->compare('agent_name',$this->agent_name,true);
         $criteria->compare('date_paid',$this->date_paid,true);
         $criteria->compare('source',$this->source);
         $criteria->compare('other_comments',$this->other_comments);
         $criteria->compare('fraud_suspected',$this->fraud_suspected);
+		$criteria->compare('action',$this->action);
 
 
 		return new CActiveDataProvider($this, array(

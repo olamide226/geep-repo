@@ -31,14 +31,15 @@ class Enquiry extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('customer_name,source, complaints, response, created_by', 'required'),
-			array('customer_name, created_by', 'length', 'max'=>60),
-			array('phone_number', 'length', 'max'=>45),
+			array('customer_name, source, complaints, response, created_by', 'required'),
+			array('customer_name, created_by', 'length', 'max'=>100),
+			array('cust_phone_number', 'length', 'max'=>11),
 			array('association', 'length', 'max'=>100),
-			array('complaints, response,other_comments', 'length', 'max'=>300),
+			//array('agent_phn_number', 'length', 'max'=>11),
+			array('complaints, response,other_comments, action', 'length', 'max'=>300),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, customer_name, phone_number, date, association, complaints,other_comments, response, created_by', 'safe', 'on'=>'search'),
+			array('id, customer_name, phone_number, date, association, complaints,other_comments, response, created_by action', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -61,7 +62,7 @@ class Enquiry extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'customer_name' => 'Customer Name',
-			'phone_number' => 'Phone Number',
+			'cust_phone_number' => 'Customer Phone Number',
 			'date' => 'Date',
 			'association' => 'Association',
 			'complaints' => 'Complaints',
@@ -69,6 +70,8 @@ class Enquiry extends CActiveRecord
 			'created_by' => 'Created By',
             'source' => 'Source',
             'other_comments'=>'Other Comments',
+			'action'=>'Action',
+			
 		);
 	}
 
@@ -92,7 +95,7 @@ class Enquiry extends CActiveRecord
 
 		$criteria->compare('id',$this->id,true);
 		$criteria->compare('customer_name',$this->customer_name,true);
-		$criteria->compare('phone_number',$this->phone_number,true);
+		$criteria->compare('cust_phone_number',$this->cust_phone_number,true);
 		$criteria->compare('date',$this->date,true);
 		$criteria->compare('association',$this->association,true);
 		$criteria->compare('complaints',$this->complaints,true);
@@ -101,6 +104,7 @@ class Enquiry extends CActiveRecord
 		$criteria->compare('response',$this->response,true);
 		$criteria->compare('created_by',$this->created_by,true);
         $criteria->compare('source',$this->source);
+		$criteria->compare('action',$this->action);
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
             'sort' => array(

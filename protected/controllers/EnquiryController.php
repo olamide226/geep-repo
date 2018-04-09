@@ -159,13 +159,24 @@ class EnquiryController extends Controller
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
 	}
+	
+	
     public function actionExcel()
-    {
+    {	
+		$get_start = $_POST['start_date'] ;
+		$get_end = $_POST['end_date'] ;
+		
+		//$use_start = isset($get_start) ? $get_start : //else use start of the week
+		//$use_start = isset($end_date)  ? $get_end  : //else use start of the week
+		
         Yii::import('ext.ECSVExport');
-        $dataProvider = new CActiveDataProvider('Enquiry');
+		$criteria = new CDbCriteria;
+		$criteria->addBetweenCondition('date', $get_start, $get_end, 'AND') ;
+		
+		$dataProvider = new CActiveDataProvider('Enquiry',array('criteria' => $criteria) );
         $csv = new ECSVExport($dataProvider);
         $output = $csv->toCSV();
-        Yii::app()->getRequest()->sendFile("fullEnquiryReport.csv", $output, true);
+		Yii::app()->getRequest()->sendFile("fullEnquiryReport.csv", $output, true);
 
 
     }

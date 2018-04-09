@@ -22,8 +22,18 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'phone_number'); ?>
-		<?php echo $form->textField($model,'phone_number',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->label($model,'cust_phone_number'); ?>
+		<?php echo $form->textField($model,'cust_phone_number',array('size'=>45,'maxlength'=>45)); ?>
+	</div>
+	
+	<div class="row">
+		<?php //echo $form->label($model,'agent_name'); ?>
+		<?php //echo $form->textField($model,'agent_name',array('size'=>60,'maxlength'=>60)); ?>
+	</div>
+
+	<div class="row">
+		<?php //echo $form->label($model,'agent_phn_number'); ?>
+		<?php //echo $form->textField($model,'agent_phn_number',array('size'=>45,'maxlength'=>45)); ?>
 	</div>
 
 	<div class="row">

@@ -17,6 +17,7 @@ class UserIdentity extends CUserIdentity
 	 */
 	public function authenticate()
 	{
+		/*
 		$users=array(
 			// username => password
 			'demo'=>'demo',
@@ -45,12 +46,20 @@ class UserIdentity extends CUserIdentity
 			'Ologunde_Oluwakemi'=>'wdrth',
 			
 		);
-		if(!isset($users[$this->username]))
-			$this->errorCode=self::ERROR_USERNAME_INVALID;
-		elseif($users[$this->username]!==$this->password)
-			$this->errorCode=self::ERROR_PASSWORD_INVALID;
-		else
-			$this->errorCode=self::ERROR_NONE;
-		return !$this->errorCode;
+		*/
+		
+		 // Create an instance from model User and search
+    $users = User::model()->findByAttributes(array('username'=>$this->username));
+ 
+    //Swap original if(!isset($users[$this->username]))
+    if(!isset($users->username))
+        $this->errorCode=self::ERROR_USERNAME_INVALID;
+    //Swap original elseif($users[$this->password]!==$this->password)
+    elseif($users->password!=$this->password)
+        $this->errorCode=self::ERROR_PASSWORD_INVALID;
+    else
+        $this->errorCode=self::ERROR_NONE;
+    return !$this->errorCode;
+
 	}
 }

@@ -13,26 +13,37 @@ if(Yii::app()->user->id=='admin') {
 
         array('label' => 'List Customers', 'url' => array('index')),
         array('label' => 'Create Customers', 'url' => array('create')),
-        array('label'=>' '),
-        array('label'=>'My Loans & Rec comments', 'url'=>array('conversations/admin')),
-        array('label' => 'DTA Registration', 'url' => array('casetwo/create')),
-        array('label' => 'Enquiries', 'url' => array('enquiry/create')),
+        array('label'=>'Loan processing issues(Aggregator)', 'url'=>array('casetwo/aggregator')),
+		array('label'=>'Loan processing issues(DTA)', 'url'=>array('casetwo/dta')),
+		array('label' => 'Loan Reconciliation', 'url' => array('boi/admin')),
+		array('label' => 'Enquiries', 'url' => array('enquiry/create')),
+		array('label' => 'Fraud', 'url' => array('fraud/create')),
+		array('label'=>'kwikCash', 'url'=>array('kwikcash/create')),
+	
+		array('label'=>'My Loans & Rec comments', 'url'=>array('conversations/admin')),
+        array('label' => '(Outgoing Calls) Unaccepted Loans', 'url' => array('unacceptedloans/admin')),
+        array('label' => '(Outgoing Calls) View my Calls', 'url' => array('unacceptedloanscalls/admin')),
+		
         array('label' => 'Micro-finance Banks', 'url' => array('mfb/admin')),
         array('label' => '(Outgoing Calls) Unaccepted Loans', 'url' => array('unacceptedloans/admin')),
         array('label' => '(Outgoing Calls) View my Calls', 'url' => array('unacceptedloanscalls/admin')),
-      //  array('label' => 'Generate Ticket', 'url' => array('tickets/create')),
 
 );
 }
-else if(Yii::app()->user->id=='Cynthia_Onwumah' ||Yii::app()->user->id== 'Isaac_Fasoyin') {
+else if(Yii::app()->user->id=='ADMIN' ||Yii::app()->user->id== 'Isaac_Fasoyin') {
     $this->menu = array(
 
-       // array('label' => 'List Customers', 'url' => array('index')),
-        //array('label' => 'Create Customers', 'url' => array('create')),
-       // array('label'=>' '),
-        array('label'=>'My Loans & Rec comments', 'url'=>array('conversations/admin')),
-        array('label' => 'DTA Registration', 'url' => array('casetwo/create')),
-        array('label' => 'Enquiries', 'url' => array('enquiry/create')),
+        array('label'=>'Loan processing issues(Aggregator)', 'url'=>array('casetwo/aggregator')),
+		array('label'=>'Loan processing issues(DTA)', 'url'=>array('casetwo/dta')),
+		array('label' => 'Loan Reconciliation', 'url' => array('boi/admin')),
+		array('label' => 'Enquiries', 'url' => array('enquiry/create')),
+		array('label' => 'Fraud', 'url' => array('fraud/create')),
+		array('label'=>'kwikCash', 'url'=>array('kwikcash/create')),
+	
+		array('label'=>'My Loans & Rec comments', 'url'=>array('conversations/admin')),
+        array('label' => '(Outgoing Calls) Unaccepted Loans', 'url' => array('unacceptedloans/admin')),
+        array('label' => '(Outgoing Calls) View my Calls', 'url' => array('unacceptedloanscalls/admin')),
+		
         array('label' => 'Micro-finance Banks', 'url' => array('mfb/admin')),
         array('label' => '(Outgoing Calls) Unaccepted Loans', 'url' => array('unacceptedloans/admin')),
         array('label' => '(Outgoing Calls) View my Calls', 'url' => array('unacceptedloanscalls/admin')),
@@ -42,14 +53,16 @@ else if(Yii::app()->user->id=='Cynthia_Onwumah' ||Yii::app()->user->id== 'Isaac_
 else{
     $this->menu = array(
         //array('label' => 'No Action', 'url' => array('')),
-        array('label'=>'My Loans & Rec comments', 'url'=>array('conversations/admin')),
-        array('label' => 'DTA Registration', 'url' => array('casetwo/create')),
-        array('label' => 'Enquiries', 'url' => array('enquiry/create')),
+		array('label'=>'Loan processing issues(Aggregator)', 'url'=>array('casetwo/aggregator')),
+		array('label'=>'Loan processing issues(DTA)', 'url'=>array('casetwo/dta')),
+		array('label' => 'Loan Reconciliation', 'url' => array('boi/admin')),
+		array('label' => 'Enquiries', 'url' => array('enquiry/create')),
+		array('label' => 'Fraud', 'url' => array('fraud/create')),
+		array('label'=>'kwikCash', 'url'=>array('kwikcash/create')),
+	
+		array('label'=>'My Loans & Rec comments', 'url'=>array('conversations/admin')),
         array('label' => '(Outgoing Calls) Unaccepted Loans', 'url' => array('unacceptedloans/admin')),
         array('label' => '(Outgoing Calls) View my Calls', 'url' => array('unacceptedloanscalls/admin')),
-      //  array('label' => 'Generate Ticket', 'url' => array('tickets/create')),
-
-       // array('label' => 'Micro-finance Banks', 'url' => array('mfb/admin')),
     );
 }
 Yii::app()->clientScript->registerScript('search', "
@@ -140,13 +153,45 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 <br/>
 
 <?php
+/*
 if(Yii::app()->user->id=='admin' || Yii::app()->user->id=='Cynthia_Onwumah' ||Yii::app()->user->id== 'Isaac_Fasoyin' ){
     echo CHtml::button("Export Today's Loans & Rec Report", array('submit' => array('boi/excelDaily')));
     echo'<br/>';
     echo'<br/>';
     echo CHtml::button('Export all Loans & Rec Reports', array('submit' => array('boi/excel')));
 }
+*/
 ?>
+
+
+<?php if(Yii::app()->user->id=='admin' || Yii::app()->user->id=='Cynthia_Onwumah' ||Yii::app()->user->id== 'Isaac_Fasoyin' ): ?>
+	<div class='row'>
+		<div class='col-md-3'>
+			<?php echo CHtml::button("Export Today's Loans & Rec Report", array('submit' => array('boi/excelDaily')), ['class'=>'form-control btn btn-sm']);?>
+		</div>
+	</div>
+<?php endif; ?>
+
+<form method="POST" action = <?= $this->createUrl('boi/excel')?> >
+
+	<?php if(Yii::app()->user->id == 'admin' || Yii::app()->user->id=='Cynthia_Onwumah' ||Yii::app()->user->id== 'Isaac_Fasoyin' ): ?>
+		<div class='row' style="margin-top:30px">
+			<div class='col-md-3'>
+				<input name= 'start_date' class='form-control' type='date'></input>
+			</div>
+			
+			<div class='col-md-3'>
+				<input name="end_date" class='form-control' type='date' ></input>
+			</div>
+			
+			<div class='col-md-3'>
+				 <input type="submit" name="submit" value="Generate Report" class="form-control" /> 
+				
+			</div>
+		</div>
+	<?php endif; ?>
+</form>
+
 
 
 

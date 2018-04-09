@@ -173,6 +173,7 @@ class Boi extends CActiveRecord
         $criteria->compare('request_denied_date',$this->request_denied_date,true);
         $criteria->compare('not_qualified_date',$this->not_qualified_date,true);
 
+
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,
         ));

@@ -28,7 +28,7 @@ class BoiController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('admin','create','index','view', 'conversations', 'conversationlist'),
+				'actions'=>array('admin','create','index','view', 'conversations', 'conversationlist', 'test'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -57,8 +57,8 @@ class BoiController extends Controller
 
 	    if(isset($_POST['Conversations']))
 	    {
-	    	$model2->attributes=$_POST['Conversations'];
-            $model2->comment_by =Yii::app()->user->id;
+	    	$model2->attributes = $_POST['Conversations'];
+            $model2->comment_by = Yii::app()->user->id;
 	    	if($model2->validate())
 	        {
 	        	if($model2->save()){
@@ -214,14 +214,37 @@ class BoiController extends Controller
 
     public function actionExcel()
     {
+		$get_start = $_POST['start_date'] ;
+		$get_end = $_POST['end_date'] ;
+		
+		//$use_start = isset($get_start) ? $get_start : //else use start of the week
+		//$use_start = isset($end_date)  ? $get_end  : //else use start of the week
+		
         Yii::import('ext.ECSVExport');
-        $dataProvider = new CActiveDataProvider('Conversations');
+		$criteria = new CDbCriteria;
+		$criteria->addBetweenCondition('created_on', $get_start, $get_end, 'AND') ;
+		
+		$dataProvider = new CActiveDataProvider('Conversations',array('criteria' => $criteria) );
         $csv = new ECSVExport($dataProvider);
         $output = $csv->toCSV();
-        Yii::app()->getRequest()->sendFile("fullLoansAndReconciliationReport.csv", $output, true);
-
+		Yii::app()->getRequest()->sendFile("fullLoansAndReconciliationReport.csv", $output, true);
 
     }
+	
+	
+	public function test(){
+		
+		//$start_date = \Yii->request->post('start_date');
+		//$end_date = \Yii->request->post('end_date');
+		
+		//var_dump($start_date, $end_date) ;
+		if(isset($_POST['submit'])){
+			
+			echo "test" ;
+			return ;
+		}
+			
+	}
 
     public function actionExcelDaily()
     {

@@ -26,9 +26,9 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'phone_number'); ?>
-		<?php echo $form->textField($model,'phone_number',array('size'=>45,'maxlength'=>45,'class'=>'form-control')); ?>
-		<?php echo $form->error($model,'phone_number'); ?>
+		<?php echo $form->labelEx($model,'cust_phone_number'); ?>
+		<?php echo $form->textField($model,'cust_phone_number',array('size'=>45,'maxlength'=>45,'class'=>'form-control')); ?>
+		<?php echo $form->error($model,'cust_phone_number'); ?>
 	</div>
 <!--
 	<div class="row">
@@ -150,6 +150,12 @@
         <?php echo $form->dropDownList($model,'source', array('Customer Called'=>'Customer Called','Customer SMS'=>'Customer SMS')
             ,array('class'=>'form-control')); ?>
         <?php echo $form->error($model,'source'); ?>
+    </div>
+	
+	<div class="row">
+        <?php echo $form->labelEx($model,'action'); ?>
+        <?php echo $form->textArea($model,'action',array('class'=>'form-control','maxlength'=>300)); ?>
+        <?php echo $form->error($model,'action'); ?>
     </div>
 
 

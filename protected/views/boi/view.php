@@ -33,14 +33,16 @@ if(Yii::app()->user->id=='admin') {
 }
 else{
     $this->menu = array(
-        array('label' => 'No Action', 'url' => array('')),
+        // previously 'No action'
+        array('label' => 'Go back', 'url' => array('admin')),
 
     );
 }
 ?>
 
+
 <h3>View Loan For Customer #<?php echo $model->member_id; ?></h3>
-<?php //echo '<a href="?r=boi/conversations&id='.$model->id.'"><button>Log a Conversation</button></a>' ;?>
+<?php //echo '<a href="?r=conversations/view&id='.$model->id.'"><button>Log a Conversation</button></a>' ;?>
 <?php //echo '<a href="?r=boi/conversationlist&id='.$model->id.'"><button>See Conversations</button></a>' ;?>
 <?php //echo CHtml::link('<button>Log a Conversation</button>',['boi/conversations','id'=>$model->id]); ?>
 
@@ -49,6 +51,7 @@ else{
 
     <div class="col-md-5">
         <?php  $this->renderPartial('conversations', ['model'=>$model2,'model2'=>$model]);  ?>
+    
     </div>
 
 
@@ -103,9 +106,9 @@ else{
 <div class="row">
     <div class="col-md-12">
         <?php
-        //$this->renderPartial('conversation_list', ['model'=>$model2,'model2'=>$model]);
-        //$this->renderPartial('conversation_list', ['model'=>$model2]);
-        //require_once ('conversation_list.php');
+        $this->renderPartial('conversation_list', ['model'=>$model2,'model2'=>$model]);
+        // $this->renderPartial('conversation_list', ['model'=>$model2]);
+        // require_once ('conversation_list.php');
         ?>
     </div>
 </div>

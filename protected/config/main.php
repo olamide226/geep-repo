@@ -5,11 +5,15 @@
 
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
+
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	//'name'=>'Government Enterprise and Empowerment Programme',
-    'name'=>'G.E.E.P.',
+
+    'name'=>'G.E.E.P',
 	'theme'=>'mattskitchen',
+  
+
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -18,19 +22,22 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		'application.helpers.*',
 	),
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
-		
+
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'ariyo',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
-			'ipFilters'=>array('127.0.0.1','::1'),
+			'ipFilters'=>array('127.0.0.1','::1', '192.168.1.109'),
 		),
-		
+
 	),
+
+
 
 	// application components
 	'components'=>array(
@@ -41,7 +48,7 @@ return array(
 		),
 
 		// uncomment the following to enable URLs in path-format
-		
+
 		/*'urlManager'=>array(
 			'urlFormat'=>'path',
 			'rules'=>array(
@@ -50,7 +57,7 @@ return array(
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
 		),*/
-		
+
 
 		// database settings are configured in database.php
 		'db'=>require(dirname(__FILE__).'/database.php'),
@@ -76,12 +83,23 @@ return array(
 			),
 		),
 
+		// image extension for working with images
+		'image'=>array(
+			'class'=>'application.extensions.image.CImageComponent',
+			  // GD or ImageMagick
+			  'driver'=>'ImageMagick',
+			  // ImageMagick setup path
+			  'params'=>array('directory'=>'/marketmoni/protected/extensions/image/drivers'),
+		  )
+
+
+
 	),
 
 	// application-level parameters that can be accessed
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'webmaster@example.com',
+		'adminEmail'=>'olamide@ebis.com.ng',
 	),
 );

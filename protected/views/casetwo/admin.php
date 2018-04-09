@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'List DTA Registrations', 'url'=>array('index')),
-	array('label'=>'New DTA Registration', 'url'=>array('create')),
+	array('label'=>'New DTA Registration', 'url'=>array('dta')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -47,7 +47,9 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
 		//'id',
 		'customer_name',
-		'phone_number',
+		'cust_phone_number',
+		'agent_name',
+		'agent_phn_number',
 		'date',
 		'association',
 		'complaints',
@@ -70,12 +72,35 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 
 
 
-<?php
-if(Yii::app()->user->id=='admin' ||Yii::app()->user->id=='Cynthia_Onwumah' ||Yii::app()->user->id== 'Isaac_Fasoyin' ){
-    echo CHtml::button("Export today's MarketMoni Report", array('submit' => array('casetwo/excelDaily')));
-    echo'<br/>';
-    echo'<br/>';
-echo CHtml::button('Export entire MarketMoni Report', array('submit' => array('casetwo/excel')));
-}
-?>
+<?php if(Yii::app()->user->id == 'ADMIN' ||Yii::app()->user->id== 'Isaac_Fasoyin' ): ?>
+	<form method="POST" action = <?= $this->createUrl('casetwo/excel')?> >
+		<div class='row' style="margin-bottom:30px">
+			<div class='col-md-3'>
+				<input name= 'start_date' class='form-control' type='date'></input>
+			</div>
+			
+			<div class='col-md-3'>
+				<input name="end_date" class='form-control' type='date' ></input>
+			</div>
+			
+			<div class='col-md-3'>
+				<select name="application_source" class="form-control" >
+					<option value="" >Select Source</option>
+					<option value="Dta" >DTA</option>
+					<option value="Aggregator">Aggregator</option>
+					
+				</select>			
+			</div>
+			
+			<div class='col-md-2'>
+				 <input type="submit" name="submit" value="Export DTA Report" class="form-control" /> 
+				
+			</div>
+		</div>
+	</form>	
+	
+	<?php echo CHtml::button("Export today's DTA Report", array('submit' => array('casetwo/excelDaily'))); ?>
+<?php endif; ?>
+
+
 

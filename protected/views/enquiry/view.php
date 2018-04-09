@@ -34,7 +34,7 @@ else{
 	'attributes'=>array(
 		'id',
 		'customer_name',
-		'phone_number',
+		'cust_phone_number',
 		'date',
 		'association',
 		'complaints',

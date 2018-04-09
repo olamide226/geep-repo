@@ -4,7 +4,7 @@
 
 $this->breadcrumbs=array(
 	'Conversations'=>array('index'),
-	$model->id,
+	$model->member_id,
 );
 
 $this->menu=array(
@@ -16,13 +16,14 @@ $this->menu=array(
 );
 ?>
 
-<h1>View Conversations #<?php echo $model->id; ?></h1>
+<h1>View Conversations #<?php echo $model->member_id; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
 		'boi_id',
+		'ticket_number',
 		'comment',
 		'other_comments',
 		'comment_by',

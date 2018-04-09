@@ -28,7 +28,7 @@ class CasetwoController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view', 'aggregator', 'dta', 'admin'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -37,7 +37,7 @@ class CasetwoController extends Controller
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('delete','excel','excelDaily'),
-				'users'=>array('admin','Cynthia_Onwumah','Isaac_Fasoyin'),
+				'users'=>array('ADMIN','Isaac_Fasoyin'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -81,7 +81,64 @@ class CasetwoController extends Controller
 			'model'=>$model,
 		));
 	}
+	
+	
+	/**
+	 * Creates a new model.
+	 * If creation is successful, the browser will be redirected to the 'view' page.
+	 */
+	public function actionAggregator()
+	{
+		$model = new Casetwo;
 
+       // $model->date =Yii::app()->user->id;
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['Casetwo']))
+		{
+			$model->attributes = $_POST['Casetwo'];
+            $model->created_by =Yii::app()->user->id;
+			$model->application_source = 'aggregator' ;
+			
+			if($model->save())
+				$this->redirect( array('view','id'=>$model->id, 'view' => 'aggregator'));
+		}
+
+		$this->render('create',array(
+			'model'=>$model, 'view' => 'aggregator'
+		));
+	}
+
+	/**
+	 * Creates a new model.
+	 * If creation is successful, the browser will be redirected to the 'view' page.
+	 */
+	 
+	 public function actionDtA()
+	{
+		$model = new Casetwo;
+
+       // $model->date =Yii::app()->user->id;
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['Casetwo']))
+		{
+			$model->attributes=$_POST['Casetwo'];
+            $model->created_by =Yii::app()->user->id;
+			$model->application_source = 'dta' ;
+			
+			if($model->save())
+				$this->redirect( array('view', 'id'=>$model->id, 'view' => 'dta'));
+		}
+
+		$this->render('create',array(
+			'model'=>$model, 'view' => 'dta'
+		));
+	}
+		
+		
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
@@ -139,6 +196,7 @@ class CasetwoController extends Controller
 		$model=new Casetwo('search');
 		$model->unsetAttributes();  // clear any default values
         $model->created_by =Yii::app()->user->id;
+		
 		if(isset($_GET['Casetwo']))
 			$model->attributes=$_GET['Casetwo'];
 
@@ -164,11 +222,24 @@ class CasetwoController extends Controller
 
     public function actionExcel()
     {
+		
+		$get_start = $_POST['start_date'] ;
+		$get_end = $_POST['end_date'] ;
+		$get_source = isset( $_POST['application_source'] ) ? $_POST['application_source'] : "dta";
+		
+		//$use_start = isset($get_start) ? $get_start : //else use start of the week
+		//$use_start = isset($end_date)  ? $get_end  : //else use start of the week
+		
         Yii::import('ext.ECSVExport');
-        $dataProvider = new CActiveDataProvider('Casetwo');
+		$criteria = new CDbCriteria;
+		$criteria->addBetweenCondition('date', $get_start, $get_end, 'AND') ;
+		$criteria->addSearchCondition('application_source', $get_source) ;
+		
+		
+		$dataProvider = new CActiveDataProvider('Casetwo',array('criteria' => $criteria) );
         $csv = new ECSVExport($dataProvider);
         $output = $csv->toCSV();
-        Yii::app()->getRequest()->sendFile("fullMarketMoniReport.csv", $output, true);
+		Yii::app()->getRequest()->sendFile("fullMarketMoniReport.csv", $output, true);
 
 
     }

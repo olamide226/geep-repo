@@ -50,6 +50,10 @@
 		<?php echo $form->label($model,'phone_number'); ?>
 		<?php echo $form->textField($model,'phone_number',array('size'=>45,'maxlength'=>45)); ?>
 	</div>
+	<div class="row">
+		<?php echo $form->label($model,'ticket_number'); ?>
+		<?php echo $form->textField($model,'ticket_number',array('size'=>45,'maxlength'=>45)); ?>
+	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'amount'); ?>

@@ -47,7 +47,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
 		//'id',
 		'customer_name',
-		'phone_number',
+		'cust_phone_number',
 		'date',
 		'association',
 		'complaints',
@@ -62,11 +62,28 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		),
 	),
 )); ?>
-<?php
-if(Yii::app()->user->id=='admin' ||Yii::app()->user->id=='Cynthia_Onwumah' ||Yii::app()->user->id== 'Isaac_Fasoyin' ){
-    echo CHtml::button("Export today's Enquiry Report", array('submit' => array('enquiry/excelDaily')));
-    echo'<br/>';
-    echo'<br/>';
-echo CHtml::button('Export entire Enquiry Report', array('submit' => array('enquiry/excel')));
-}
-?>
+<?php if(Yii::app()->user->id=='admin' ||Yii::app()->user->id=='Cynthia_Onwumah' ||Yii::app()->user->id== 'Isaac_Fasoyin' ):?>
+	
+	<form method="POST" action = <?= $this->createUrl('enquiry/excel')?> >
+		<div class='row' style="margin-top:30px">
+			<div class='col-md-3'>
+				<input name= 'start_date' class='form-control' type='date'></input>
+			</div>
+			
+			<div class='col-md-3'>
+				<input name="end_date" class='form-control' type='date' ></input>
+			</div>
+			
+			
+			<div class='col-md-2'>
+				 <input type="submit" name="submit" value="Export Enquiry Report" class="form-control" /> 
+				
+			</div>
+		</div>
+	</form>
+	
+	<?= CHtml::button("Export today's Enquiry Report", array('submit' => array('enquiry/excelDaily'))); ?>
+	
+<?php endif ;?>
+
+

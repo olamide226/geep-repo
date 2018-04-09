@@ -31,9 +31,9 @@
 
 <div class="container-fluid" id="wrapper">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-12 col-md-offset-0">
             <header id="header">
-                <div id="logo"><?php echo CHtml::link(CHtml::encode(Yii::app()->name), '/'); ?></div>
+                <div id="logo"><img class = 'img-thumbnail' src='<?php echo "images/ebislogo1.jpg"; ?>' ><?php echo CHtml::link(CHtml::encode(Yii::app()->name), '/'); ?></div>
 
                     <?php echo CHtml::link('Generate Ticket','index.php?r=tickets/create', array('target'=>'_blank')); ?>
 
@@ -80,7 +80,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-12 col-md-offset-0">
             <div id="main-wrapper"><div id="main" role="main">
                     <?php echo $content; ?>
                 </div></div><!-- main -->

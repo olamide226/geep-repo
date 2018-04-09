@@ -19,6 +19,12 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
+	<div class="row">
+			<?php echo $form->labelEx($model,'ticket_number'); ?>
+			<?php echo $form->textField($model,'ticket_number',array('class'=>'form-control', 'readonly' => true)); ?>
+			<?php echo $form->error($model,'ticket_number'); ?>
+	</div>
+
     <div class="row">
         <?php echo $form->labelEx($model,'amount'); ?>
         <?php echo $form->numberField($model,'amount',array('class'=>'form-control', 'step'=>'0.01', 'min'=>0)); ?>

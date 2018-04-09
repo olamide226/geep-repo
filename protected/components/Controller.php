@@ -5,7 +5,7 @@
  */
 class Controller extends CController
 {
-	// Salt used in hashing password
+
 	protected $salt = '$1$goodluck$';
 	/**
 	 * @var string the default layout for the controller view. Defaults to '//layouts/column1',
@@ -17,9 +17,10 @@ class Controller extends CController
 	 */
 	public $menu=array();
 	/**
-	 * @var array the breadcrumbs of the current page. The value of this property will
-	 * be assigned to {@link CBreadcrumbs::links}. Please refer to {@link CBreadcrumbs::links}
+	 * @var array the breadcrumbs of the current page. The value of this property  {@link CBreadcrumbs::links}. Please refer to {@link CBreadcwill
+	 * be assigned torumbs::links}
 	 * for more details on how to specify this property.
 	 */
 	public $breadcrumbs=array();
+
 }

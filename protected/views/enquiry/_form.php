@@ -19,26 +19,16 @@
 
     <?php echo $form->errorSummary($model); ?>
 
-    <div class="row">
-        <?php echo $form->labelEx($model,'customer_name'); ?>
-        <?php echo $form->textField($model,'customer_name',array('size'=>60,'maxlength'=>60)); ?>
-        <?php echo $form->error($model,'customer_name'); ?>
-    </div>
-
-    <div class="row">
-        <?php echo $form->labelEx($model,'phone_number'); ?>
-        <?php echo $form->textField($model,'phone_number',array('size'=>45,'maxlength'=>45)); ?>
-        <?php echo $form->error($model,'phone_number'); ?>
-    </div>
+   
     <!--
 	<div class="row">
-		<?php echo $form->labelEx($model,'date'); ?>
-		<?php echo $form->textField($model,'date'); ?>
-		<?php echo $form->error($model,'date'); ?>
+		<?php //echo $form->labelEx($model,'date'); ?>
+		<?php //echo $form->textField($model,'date'); ?>
+		<?php //echo $form->error($model,'date'); ?>
 	</div>
 
     <div class="row">
-        <?php echo $form->labelEx($model,'date');
+        <?php //echo $form->labelEx($model,'date');
 
     // Date Entry
 
@@ -66,10 +56,35 @@
         <?php echo $form->error($model,'date'); ?>
     </div>
 -->
+	 <div class="row">
+        <?php echo $form->labelEx($model,'customer_name'); ?>
+        <?php echo $form->textField($model,'customer_name',array('class'=>'form-control', 'size'=>60,'maxlength'=>60)); ?>
+        <?php echo $form->error($model,'customer_name'); ?>
+    </div>
 
     <div class="row">
+        <?php echo $form->labelEx($model,'cust_phone_number'); ?>
+        <?php echo $form->textField($model,'cust_phone_number',array('class'=>'form-control', 'size'=>45,'maxlength'=>11)); ?>
+        <?php echo $form->error($model,'cust_phone_number'); ?>
+    </div>
+	
+	<!-- 
+	<div class="row">
+		<?php //echo $form->labelEx($model,'agent_name'); ?>
+		<?php //echo $form->textField($model,'agent_name',array('size'=>60,'maxlength'=>100, 'class'=>'form-control')); ?>
+		<?php //echo $form->error($model,'agent_name'); ?>
+	</div>
+
+	<div class="row">
+		<?php //echo $form->labelEx($model,'agent_phn_number'); ?>
+		<?php //echo $form->textField($model,'agent_phn_number',array('size'=>11,'maxlength'=>11, 'class'=>'form-control')); ?>
+		<?php //echo $form->error($model,'agent_phn_number'); ?>
+	</div>
+	-->
+	
+    <div class="row">
         <?php echo $form->labelEx($model,'association'); ?>
-        <?php echo $form->textField($model,'association',array('size'=>60,'maxlength'=>100)); ?>
+        <?php echo $form->textField($model,'association',array('class'=>'form-control', 'size'=>60,'maxlength'=>100)); ?>
         <?php echo $form->error($model,'association'); ?>
     </div>
 
@@ -77,21 +92,19 @@
         <?php echo $form->labelEx($model,'complaints'); ?>
         <?php echo $form->dropDownList($model,'complaints', array(
                 ""=>"",
-                "Customer wants to know the gain to the association if they register their members."=>"Customer wants to know the gain to the association if they register their members.",
-                "Customer wants to know if the money would be paid into individual accounts."=>"Customer wants to know if the money would be paid into individual accounts.",           
-                "Customer wants to know maximum and minimum number of members that can apply."=>"Customer wants to know maximum and minimum number of members that can apply.",
-                "Customer wants to know the maximum and minimum amount a member can apply for."=>"Customer wants to know the maximum and minimum amount a member can apply for.",
-                "Customer wants the criteria for application"=>"Customer wants the criteria for application",
-                "Customer wants to know how to identify genuine BOI agent"=>"Customer wants to know how to identify genuine BOI agent",
-                "Customer wants to know if an individual can apply for the loan without being a member of an association"=>"Customer wants to know if an individual can apply for the loan without being a member of an association",
-                "Customer wants to know if they can make monthly payments?"=>"Customer wants to know if they can make monthly payments?",
-                "Call dropped before customer could lay complaints"=>"Call dropped before customer could lay complaints",
-                "Customer wants to know BOI's office location"=>"Customer wants to know BOI's office location",
-                "Request for personal account number by Customer"=>"Request for personal account number by Customer",
-                "Can an individual apply in two different associations?"=>"Can an individual apply in two different associations?",
-                "Customer's bank is not on the listed banks eligible for application"=>"Customer's bank is not on the listed banks eligible for application",               
-				"Unable to access customer's details with the phone number provided."=>"Unable to access customer's details with the phone number provided." ,
-				"Customer got a message from BOI to correct BVN" => "Customer got a message from BOI to correct BVN"
+                "Customer want to know the benefit their association will derive if they register their members"=>"Customer want to know the benefit their association will derive if they register their members",
+				"Customer wants the criteria for application"=>"Customer wants the criteria for application",
+				"Customer wants to know if the money would be paid into individual accounts"=>"Customer wants to know if the money would be paid into individual accounts",
+				"Customer wants to know if an individual can apply for the loan without being a member of an association"=>"Customer wants to know if an individual can apply for the loan without being a member of an association",
+				"Customer wants to know if an individual can apply with two different associations"=>"Customer wants to know if an individual can apply with two different associations",
+				"Customer wants to know maximum and minimum number of members that can apply"=>"Customer wants to know maximum and minimum number of members that can apply",      
+				"Customer wants to know the maximum and minimum amount a member can apply for"=>"Customer wants to know the maximum and minimum amount a member can apply for",            
+				"Customer wants to know how to identify genuine BOI agent"=>"Customer wants to know how to identify genuine BOI agent",
+				"Customer wants to know how to become BOI agent"=>"Customer wants to know how to become BOI agent",
+				"Customer wants to know if they can make monthly payments"=>"Customer wants to know if they can make monthly payments",
+				"Customer wants to know BOI's office location, customer care line and email address"=>"Customer wants to know BOI's office location, customer care line and email address",
+				"Call dropped before customer could lay complaints"=>"Call dropped before customer could lay complaints",
+
             )
             ,array('class'=>'form-control')); ?>
         <?php echo $form->error($model,'complaints'); ?>
@@ -117,6 +130,12 @@
         <?php echo $form->dropDownList($model,'source', array('Customer Called'=>'Customer Called','Customer SMS'=>'Customer SMS')
             ,array('class'=>'form-control')); ?>
         <?php echo $form->error($model,'source'); ?>
+    </div>
+	
+	<div class="row">
+        <?php echo $form->labelEx($model, 'action'); ?>
+        <?php echo $form->textArea($model, 'action',array('class'=>'form-control','maxlength'=>300)); ?>
+        <?php echo $form->error($model, 'action'); ?>
     </div>
 
 

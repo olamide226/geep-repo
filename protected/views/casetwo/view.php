@@ -9,7 +9,8 @@ $this->breadcrumbs=array(
 if(Yii::app()->user->id=='admin' ) {
     $this->menu = array(
         //array('label' => 'List MarketMoni Registrations', 'url' => array('index')),
-        array('label' => 'New MarketMoni Registrations', 'url' => array('create')),
+       array('label' => 'Loan Processing issue(DTA))', 'url' => array('casetwo/dta')),
+		array('label' => 'Loan Processing issue(Aggregator))', 'url' => array('casetwo/aggregator')),
         array('label' => 'Update MarketMoni Registration', 'url' => array('update', 'id' => $model->id)),
         array('label'=>'Delete MarketMoni Registration', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
         array('label' => 'Manage MarketMoni Registrations', 'url' => array('admin')),
@@ -19,7 +20,8 @@ if(Yii::app()->user->id=='admin' ) {
 else{
     $this->menu = array(
         //array('label' => 'List MarketMoni Registrations', 'url' => array('index')),
-        array('label' => 'New MarketMoni Registrations', 'url' => array('create')),
+        array('label' => 'Loan Processing issue(DTA))', 'url' => array('casetwo/dta')),
+		array('label' => 'Loan Processing issue(Aggregator))', 'url' => array('casetwo/aggregator')),
         array('label' => 'Update MarketMoni Registration', 'url' => array('update', 'id' => $model->id)),
         //array('label'=>'Delete Case two', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
         array('label' => 'Manage MarketMoni Registrations', 'url' => array('admin')),
@@ -35,7 +37,9 @@ else{
 	'attributes'=>array(
 		'id',
 		'customer_name',
-		'phone_number',
+		'cust_phone_number',
+		'agent_name',
+		'agent_phn_number',
 		'date',
 		'association',
 		'complaints',
@@ -43,6 +47,8 @@ else{
 		'response',
         'created_by',
         'source',
+		'action',
+		'application_source',
 	),
 )); ?>
 

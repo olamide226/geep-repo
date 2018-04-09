@@ -7,7 +7,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create new DTA Registration', 'url'=>array('create')),
+	array('label'=>'Loan processing issue (Aggregator)', 'url'=>array('casetwo/aggregator')),
+	array('label'=>'Loan processing issue (DTA)', 'url'=>array('casetwo/dta')),
 	array('label'=>'Manage DTA Registrations', 'url'=>array('admin')),
 );
 ?>

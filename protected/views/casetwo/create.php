@@ -14,6 +14,18 @@ $this->menu=array(
 );
 ?>
 
-<h1>New DTA Registration</h1>
+<!-- this code should be re-written if more views are to be added -->
+<h1>Loan Processing issues  </h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php 
+	
+	if($view == 'aggregator')
+		$this->renderPartial('aggregator', array('model'=>$model));
+	
+	elseif($view == 'dta')
+		$this->renderPartial('dta', array('model' => $model));
+		
+	else
+		$this->renderPartial('_form', array('model'=>$model));
+	
+?>
