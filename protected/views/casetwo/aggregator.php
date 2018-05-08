@@ -18,6 +18,19 @@
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
+	<?php include "search_script.php"; ?>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'cust_phone_number'); ?>
+		<?php echo $form->textField($model,'cust_phone_number',array('size'=>45,'maxlength'=>11,'class'=>'form-control','onkeyup'=>'loadDoc()')); ?>
+		<?php echo $form->error($model,'cust_phone_number'); ?>
+		<button class="btn btn-info" type="button" onclick="loadDoc()">Show/Hide Call logs</button>
+
+	</div>
+
+	<div style="display:none" class="row call_logs">
+
+	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'customer_name'); ?>
@@ -26,20 +39,13 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'cust_phone_number'); ?>
-		<?php echo $form->textField($model,'cust_phone_number',array('size'=>45,'maxlength'=>11,'class'=>'form-control')); ?>
-		<?php echo $form->error($model,'cust_phone_number'); ?>
-	</div>
-	
-	
-	<div class="row">
 		<?php echo $form->labelEx($model,'agent_name'); ?>
 		<?php echo $form->textField($model,'agent_name',array('size'=>45,'maxlength'=>100,'class'=>'form-control')); ?>
 		<?php echo $form->error($model,'agent_name'); ?>
 	</div>
-	
-	
-	
+
+
+
 	<div class="row">
 		<?php echo $form->labelEx($model,'agent_phn_number'); ?>
 		<?php echo $form->textField($model,'agent_phn_number',array('size'=>45,'maxlength'=>11,'class'=>'form-control')); ?>
@@ -113,11 +119,11 @@
 "Customer wants to know about the loan tenure"=>"Customer wants to know about the loan tenure",
 "Customer wants to know maximum and minimum number of members that can apply"=>"Customer wants to know maximum and minimum number of members that can apply",
 "Customer wants to know the maximum and minimum amount a member can apply for"=>"Customer wants to know the maximum and minimum amount a member can apply for",
-"Customer wants to know why some members did not get a confirmation message"=>"Customer wants to know why some members did not get a confirmation message", 
-"Phone number registered with is no longer in use"=>"Phone number registered with is no longer in use", 
-"Customer has submitted the form a while ago but is yet to get the loan"=>"Customer has submitted the form a while ago but is yet to get the loan", 
-"Customer wants to know when the loan will be disbursed"=>"Customer wants to know when the loan will be disbursed", 
-"Customer wants to know if the money would be paid into individual accounts"=>"Customer wants to know if the money would be paid into individual accounts", 
+"Customer wants to know why some members did not get a confirmation message"=>"Customer wants to know why some members did not get a confirmation message",
+"Phone number registered with is no longer in use"=>"Phone number registered with is no longer in use",
+"Customer has submitted the form a while ago but is yet to get the loan"=>"Customer has submitted the form a while ago but is yet to get the loan",
+"Customer wants to know when the loan will be disbursed"=>"Customer wants to know when the loan will be disbursed",
+"Customer wants to know if the money would be paid into individual accounts"=>"Customer wants to know if the money would be paid into individual accounts",
 "Customer wants to know the interest rate on the loan"=>"Customer wants to know the interest rate on the loan",
 "Customer wants to know why BVN is required"=>"Customer wants to know why BVN is required",
 "Customer wants to know if the loan range can be increased"=>"Customer wants to know if the loan range can be increased",
@@ -131,9 +137,9 @@
 "Customer not interested in the loan"=>"Customer not interested in the loan",
 "Customer did not apply for loan"=>"Customer did not apply for loan",
 "Customer is yet to get feedback message after BVN correction"=>"Customer is yet to get feedback message after BVN correction",
-"Customer's bank is not on the listed banks eligible for application"=>"Customer's bank is not on the listed banks eligible for application",	
+"Customer's bank is not on the listed banks eligible for application"=>"Customer's bank is not on the listed banks eligible for application",
 "Unable to access customer's details with the phone number provided"=>"Unable to access customer's details with the phone number provided",
-"Customer complained that other members of the association has received the loan but yet to get any feedback"=>"Customer complained that other members of the association has received the loan but yet to get any feedback", 
+"Customer complained that other members of the association has received the loan but yet to get any feedback"=>"Customer complained that other members of the association has received the loan but yet to get any feedback",
 "Customer is yet to get the loan after responding to the loan offer SMS"=>"Customer is yet to get the loan after responding to the loan offer SMS",
 "Customer has corrected account details but yet to get the loan"=>"Customer has corrected account details but yet to get the loan",
 "test" => "test",
@@ -154,9 +160,37 @@
 
     <div class="row">
         <?php echo $form->labelEx($model,'response'); ?>
-        <?php echo $form->textArea($model,'response',array('class'=>'form-control','maxlength'=>300)); ?>
+        <?php echo $form->textField($model,'response',array('class'=>'form-control','maxlength'=>300,'list'=>'responses')); ?>
         <?php echo $form->error($model,'response'); ?>
     </div>
+<datalist id='responses'>
+ <option value="Customer was given the URL to download the registration form to apply and submit."></option>
+ <option value="Kindly add members to existing form and submit."></option>
+ <option value="Customer was given the link to make correction(s)."></option>
+ <option value="Kindly ignore loan offer SMS."></option>
+ <option value="Marketmoni loan is being processed."></option>
+ <option value="Customer was briefed on the text message"></option>
+ <option value="Kindly make payment to Agent."></option>
+ <option value="Marketmoni registration form is being processed."></option>
+ <option value="Association gives platform for members to register for the Marketmoni loan."></option>
+ <option value="24 weeks/6months."></option>
+ <option value="Minimum of 5 members and maximum of 200 members."></option>
+ <option value="Minimum amount is 10,000, Maximum amount is 50,000. Subsequently, a higher amount of 100,000naira and 250,000naira can be applied for."></option>
+ <option value="Kindly retrieve phone number used in applying for Marketmoni loan."></option>
+ <option value="Notification will be sent across to members."></option>
+ <option value="All payment will be made into individual accounts"></option>
+ <option value="No interest rate on marketmoni loan, But a 5% administrative fee is compulsory."></option>
+ <option value="For verification of customer's information."></option>
+ <option value="After a first time application, customer can apply for a higher amount of 100,000naira and 250,000 naira."></option>
+ <option value="Customer was given the code to fetch the loan offer SMS."></option>
+ <option value="Keep trying the USSD code."></option>
+ <option value="Kindly ignore the text message."></option>
+ <option value="Customer was guided on how to make correction on the BVN"></option>
+ <option value="Kindly re-apply if interested"></option>
+ <option value="Ignore subsequent message(s)"></option>
+ <option value="Marketmoni loan can only be accessed through the listed banks."></option>
+ <option value="Kindly provide phone number used during registration."></option>
+</datalist>
 
     <div class="row">
         <?php echo $form->labelEx($model,'source'); ?>
@@ -164,13 +198,13 @@
             ,array('class'=>'form-control')); ?>
         <?php echo $form->error($model,'source'); ?>
     </div>
-	
+
 	<div class="row">
         <?php echo $form->labelEx($model,'action'); ?>
         <?php echo $form->textArea($model,'action',array('class'=>'form-control','maxlength'=>300)); ?>
         <?php echo $form->error($model,'action'); ?>
     </div>
-	
+
 
 
 	<div class="row buttons">

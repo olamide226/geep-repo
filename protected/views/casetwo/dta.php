@@ -18,6 +18,20 @@
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
+<?php include "search_script.php"; ?>
+
+		<div class="row">
+
+			<?php echo $form->labelEx($model,'cust_phone_number'); ?>
+			<?php echo $form->textField($model,'cust_phone_number',array('size'=>45,'maxlength'=>45,'class'=>'form-control', 'onkeyup'=>'loadDoc()')); ?>
+			<?php echo $form->error($model,'cust_phone_number'); ?>
+			<button class="btn btn-info" type="button" onclick="loadDoc()">Show/Hide Call logs</button>
+
+		</div>
+		<div style="display:none" class="row call_logs">
+
+		</div>
+
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'customer_name'); ?>
@@ -26,17 +40,11 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'cust_phone_number'); ?>
-		<?php echo $form->textField($model,'cust_phone_number',array('size'=>45,'maxlength'=>11,'class'=>'form-control')); ?>
-		<?php echo $form->error($model,'cust_phone_number'); ?>
-	</div>
-	
-	<div class="row">
 		<?php echo $form->labelEx($model,'agent_name'); ?>
 		<?php echo $form->textField($model,'agent_name',array('size'=>45,'maxlength'=>45,'class'=>'form-control')); ?>
 		<?php echo $form->error($model,'agent_name'); ?>
 	</div>
-	
+
 	<div class="row">
 		<?php echo $form->labelEx($model,'agent_phn_number'); ?>
 		<?php echo $form->textField($model,'agent_phn_number',array('size'=>45,'maxlength'=>11,'class'=>'form-control')); ?>
@@ -84,6 +92,7 @@
 		<?php echo $form->textField($model,'association',array('size'=>60,'maxlength'=>100,'class'=>'form-control')); ?>
 		<?php echo $form->error($model,'association'); ?>
 	</div>
+
 <!--
 	<div class="row">
 		<?php echo $form->labelEx($model,'complaints'); ?>
@@ -157,9 +166,43 @@
 
     <div class="row">
         <?php echo $form->labelEx($model,'response'); ?>
-        <?php echo $form->textArea($model,'response',array('class'=>'form-control','maxlength'=>300)); ?>
+        <?php echo $form->textField($model,'response',array('class'=>'form-control','maxlength'=>300,'list'=>'responses')); ?>
         <?php echo $form->error($model,'response'); ?>
     </div>
+		<datalist id=responses>
+     <option value="Marketmoni loan is being processed."></option>
+		 <option value="Customer was given the URL to download the form and thereafter submit via the URL"></option>
+		 <option value="Kindly register new members on New Excel sheet."></option>
+		 <option value="Customer was given the correction link to rectify the error."></option>
+		 <option value="Explanation was given to customer based on the message received."></option>
+		 <option value="Kindly locate a BOI agent for registration"></option>
+		 <option value="Kindly ignore the loan offer message."></option>
+		 <option value="Customer was given the registration URL. (apply.marketmoni.com.ng)"></option>
+		 <option value="Marketmoni registration form is being processed."></option>
+		 <option value="Asssociation only provide the platform to their members."></option>
+		 <option value="Marketmoni loan is being processed."></option>
+		 <option value="Loan will be disbursed into members account."></option>
+		 <option value="The loan tenure is 6 months, 2 free weeks of no repayment and 24 weeks of re-payment."></option>
+		 <option value="Applicants BVN is one of the major information to be provided in order to process the loan."></option>
+		 <option value="The maximum number of person's that can apply is 200 per Excel sheet and minimum of 5 person's."></option>
+		 <option value="The maximum amount is N50,000 and the minimum amount is N10,000."></option>
+		 <option value="Only members with correct information will receive a feedback message."></option>
+		 <option value="Kindly retrieve the phone number."></option>
+		 <option value="Kindly register only the interested member."></option>
+		 <option value="No interest but there is an administrative fee of 5%."></option>
+		 <option value="The first application maximum amount is N50,000 but subsequent applications can be increased to N100,000"></option>
+		 <option value="Customer was given the USSD to access the loan offer message."></option>
+		 <option value="Kindly respond through the phone number registered with, and also ensure there is airtime on the line."></option>
+		 <option value="Kindly ignore subsequent messages."></option>
+		 <option value="Kindly follow the link sent to update your BVN record."></option>
+		 <option value="Customer was given the BVN correction link. Http://goo.gl/7jn5iC."></option>
+		 <option value="Marketmoni loan can only be accessed through the listed banks on the Excel sheet."></option>
+		 <option value="Customer was asked to provide the phone that was used to process the loan."></option>
+		 <option value="Kindly re-apply for marketmoni loan."></option>
+		 <option value="Ensure all the necessary fields are correctly filled and try to re-upload the forms."></option>
+		 <option value="apply.marketmoni.com.ng"></option>
+		</datalist>
+
 
     <div class="row">
         <?php echo $form->labelEx($model,'source'); ?>
@@ -167,13 +210,13 @@
             ,array('class'=>'form-control')); ?>
         <?php echo $form->error($model,'source'); ?>
     </div>
-	
+
 	<div class="row">
         <?php echo $form->labelEx($model,'action'); ?>
         <?php echo $form->textArea($model,'action',array('class'=>'form-control','maxlength'=>300)); ?>
         <?php echo $form->error($model,'action'); ?>
     </div>
-	
+
 
 
 	<div class="row buttons">

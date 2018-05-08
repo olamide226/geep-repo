@@ -8,7 +8,7 @@ html
 
 body
 {
-  background: none;
+  background:none;// rgb(110, 202, 52);
 	color: #555;
 	font: 13px/150% Arial, Helvetica, sans-serif;
 	margin: 0;
@@ -77,6 +77,7 @@ input[type="password"]:focus {
 {
   color: #fff;
   text-decoration: none;
+  margin-bottom: 2px;
 }
 
 #main-wrapper

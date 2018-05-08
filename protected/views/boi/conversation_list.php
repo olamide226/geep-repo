@@ -44,7 +44,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 <?php
 // create database connection
 $conn = Yii::app()->db;
-$sql = sprintf("SELECT amount, date,categories,ticket_number,comment,comment_by FROM conversations
+$sql = sprintf("SELECT amount, date,categories,ticket_number, comment,comment_by FROM conversations
 			WHERE member_id = '%s' ORDER BY created_on desc LIMIT 5", $model2->member_id);
 //send query to database
 $command = $conn->createCommand($sql);
@@ -94,7 +94,7 @@ $command = $conn->createCommand($sql);
 //fetch data from db
 $dataReader=$command->query();
 //checks if theres a call log
-if ($row=$dataReader->read()){
+//if ($row=$dataReader->read()){
 // calling read() repeatedly until it returns false
 while(($row=$dataReader->read())!==false) {
 
@@ -113,7 +113,7 @@ while(($row=$dataReader->read())!==false) {
          <td><?php echo $row['comment_by']; ?></td>
          <td><?php echo $row['comment']; ?></td>
       </tr>
-<?php }} else{ echo "<h3>No Previous Record Found!!</h3>"; } ?>
+<?php }//} else{ echo "<h3>No Previous Record Found!!</h3>"; } ?>
    </table>
 
    <hr style='border:1px solid green'>

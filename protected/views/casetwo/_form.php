@@ -14,10 +14,24 @@
 	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
 )); ?>
+<?php
+        //Yii::app()->clientScript->registerCoreScript('jquery');
+        //Yii::app()->clientScript->registerCoreScript('jquery.ui');
+?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
+<?php include "search_script.php"; ?>
+	<div class="row">
+		<?php echo $form->labelEx($model,'cust_phone_number'); ?>
+		<?php echo $form->textField($model,'cust_phone_number',array('size'=>45,'maxlength'=>45,'class'=>'form-control','onkeyup'=>'loadDoc()')); ?>
+		<?php echo $form->error($model,'cust_phone_number'); ?>
+		<button class="btn btn-info" type="button" onclick="loadDoc()">Show/Hide Call logs</button>
+	</div>
+	<div style="display:none" class="row call_logs">
+
+	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'customer_name'); ?>
@@ -25,11 +39,6 @@
 		<?php echo $form->error($model,'customer_name'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'cust_phone_number'); ?>
-		<?php echo $form->textField($model,'cust_phone_number',array('size'=>45,'maxlength'=>45,'class'=>'form-control')); ?>
-		<?php echo $form->error($model,'cust_phone_number'); ?>
-	</div>
 <!--
 	<div class="row">
 		<?php echo $form->labelEx($model,'date'); ?>
@@ -114,11 +123,11 @@
 				"Customer wants to know the tenure for the loan."=>"Customer wants to know the tenure for the loan.",
 				"Customer wants to know why BVN is required."=>"Customer wants to know why BVN is required.",
 				"Customer wants to know if the loan range can be increased"=>"Customer wants to know if the loan range can be increased",
-				"Customer wants the loan offer message resent"=>"Customer wants the loan offer message resent", 
+				"Customer wants the loan offer message resent"=>"Customer wants the loan offer message resent",
 				"Customer has difficulty responding to the USSD"=>"Customer has difficulty responding to the USSD",
 				"Customer keeps receiving loan offer message even after responding to it."=>"Customer keeps receiving loan offer message even after responding to it.",
 				"Customer has responded to the loan offer SMS"=>"Customer has responded to the loan offer SMS" ,
-				"Customer got a message from BOI to correct BVN but claims BVN is correct"=> "Customer got a message from BOI to correct BVN but claims BVN is correct", 
+				"Customer got a message from BOI to correct BVN but claims BVN is correct"=> "Customer got a message from BOI to correct BVN but claims BVN is correct",
 				"Customer got a message from BOI to correct BVN but does not know what to do."=> "Customer got a message from BOI to correct BVN but does not know what to do.",
 				"Loan offer rejected."=>"Loan offer rejected.",
 				"Customer not interested in the loan."=>"Customer not interested in the loan.",
@@ -151,7 +160,7 @@
             ,array('class'=>'form-control')); ?>
         <?php echo $form->error($model,'source'); ?>
     </div>
-	
+
 	<div class="row">
         <?php echo $form->labelEx($model,'action'); ?>
         <?php echo $form->textArea($model,'action',array('class'=>'form-control','maxlength'=>300)); ?>

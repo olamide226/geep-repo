@@ -17,7 +17,7 @@
 ));
 $conn = Yii::app()->db;
 $sql2 = "INSERT INTO GENERATOR(create_date,time_created) VALUES(NOW(),CURRENT_TIME)";
-$sql3 = "SELECT CONCAT(DATE_FORMAT(create_date,'%Y%m%d'),LPAD(sequence,4,'0')) AS gen from GENERATOR where sequence=(select count(*) from GENERATOR)";
+$sql3 = "SELECT MAX(CONCAT(DATE_FORMAT(create_date,'%Y%m%d'),LPAD(sequence,4,'0'))) AS gen from GENERATOR";
 //send query to database
 $command2 = $conn->createCommand($sql2);
 $command3 = $conn->createCommand($sql3);
@@ -116,6 +116,7 @@ $row=$dataReader->read()
         <?php echo $form->dropDownList($model,'categories', array(
             'Information correct'=>'Information correct',
                 'Incorrect payment'=>'Incorrect payment',
+		'Upgrade Me'=>'Upgrade Me',
 
             'Incomplete call'=>'Incomplete call','Customer does not have info'=>'Customer does not have info',
             'Payment made'=>'Payment made'),array('class'=>'form-control')); ?>
@@ -124,7 +125,7 @@ $row=$dataReader->read()
 
     <div class="row">
         <?php echo $form->labelEx($model,'source'); ?>
-        <?php echo $form->dropDownList($model,'source', array('Customer Called'=>'Customer Called','Customer SMS'=>'Customer SMS')
+        <?php echo $form->dropDownList($model,'source', array('Customer Called'=>'Customer Called','Customer SMS'=>'Customer SMS','Chat'=>'Chat')
             ,array('class'=>'form-control')); ?>
         <?php echo $form->error($model,'source'); ?>
     </div>
@@ -148,6 +149,8 @@ $row=$dataReader->read()
         <?php echo $form->labelEx($model,'comment'); ?>
         <?php echo $form->dropDownList($model,'comment', array(
                 ""=>"",
+		"UPME - Qualified"=>"UPME - Qualified",
+		"UPME - Not Qualified"=>"UPME - Not Qualified",
 						"Customer wants to know if there are extra charges if prompt payment is not made as at when due"=>"Customer wants to know if there are extra charges if prompt payment is not made as at when due",
 						"Customer got a message to pay back loan that was not received"=>"Customer got a message to pay back loan that was not received",
 						"Customer cannot remember amount paid so far"=>"Customer cannot remember amount paid so far",

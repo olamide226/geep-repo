@@ -72,7 +72,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 
 
 
-<?php if(Yii::app()->user->id == 'ADMIN' ||Yii::app()->user->id== 'Isaac_Fasoyin' ): ?>
+<?php if(Yii::app()->user->id == 'ADMIN' ||strtolower(Yii::app()->user->id)== 'isaac_fasoyin' ): ?>
 	<form method="POST" action = <?= $this->createUrl('casetwo/excel')?> >
 		<div class='row' style="margin-bottom:30px">
 			<div class='col-md-3'>
