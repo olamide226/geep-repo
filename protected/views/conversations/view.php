@@ -23,7 +23,6 @@ $this->menu=array(
 	'attributes'=>array(
 		'id',
 		'boi_id',
-		'ticket_number',
 		'comment',
 		'other_comments',
 		'comment_by',

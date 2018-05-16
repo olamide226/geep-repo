@@ -19,12 +19,6 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-			<?php echo $form->labelEx($model,'ticket_number'); ?>
-			<?php echo $form->textField($model,'ticket_number',array('class'=>'form-control', 'readonly' => true)); ?>
-			<?php echo $form->error($model,'ticket_number'); ?>
-	</div>
-
     <div class="row">
         <?php echo $form->labelEx($model,'amount'); ?>
         <?php echo $form->numberField($model,'amount',array('class'=>'form-control', 'step'=>'0.01', 'min'=>0)); ?>
@@ -79,6 +73,7 @@
         <?php echo $form->dropDownList($model,'categories', array(
             'Information correct'=>'Information correct',
             'Incorrect payment'=>'Incorrect payment',
+			'Upgrade Me'=>'Upgrade Me',
 
             'Incomplete call'=>'Incomplete call','Customer does not have info'=>'Customer does not have info',
             'Payment made'=>'Payment made'),array('class'=>'form-control')); ?>
@@ -87,7 +82,7 @@
 
     <div class="row">
         <?php echo $form->labelEx($model,'source'); ?>
-        <?php echo $form->dropDownList($model,'source', array('Customer Called'=>'Customer Called','Customer SMS'=>'Customer SMS')
+        <?php echo $form->dropDownList($model,'source', array('Customer Called'=>'Customer Called','Customer SMS'=>'Customer SMS','Chat'=>'Chat')
             ,array('class'=>'form-control')); ?>
         <?php echo $form->error($model,'source'); ?>
     </div>
@@ -111,6 +106,8 @@
         <?php echo $form->labelEx($model,'comment'); ?>
         <?php echo $form->dropDownList($model,'comment', array(
                 ""=>"",
+				"UPME - Qualified"=>"UPME - Qualified",
+				"UPME - Not Qualified"=>"UPME - Not Qualified",
                 "Customer wants to know if there are extra charges if prompt payment is not made as at when due."=>"Customer wants to know if there are extra charges if prompt payment is not made as at when due.",
                 "Customer got a message to pay back a loan that was not received."=>"Customer got a message to pay back a loan that was not received.",
                 "Customer does not understand the text message."=>"Customer does not understand the text message.",

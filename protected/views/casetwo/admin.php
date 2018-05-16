@@ -48,8 +48,8 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		//'id',
 		'customer_name',
 		'cust_phone_number',
-		'agent_name',
-		'agent_phn_number',
+		// 'agent_name',
+		// 'agent_phn_number',
 		'date',
 		'association',
 		'complaints',
@@ -72,7 +72,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 
 
 
-<?php if(Yii::app()->user->id == 'ADMIN' ||strtolower(Yii::app()->user->id)== 'isaac_fasoyin' ): ?>
+<?php if(strtolower(Yii::app()->user->id) == 'admin' ||strtolower(Yii::app()->user->id)== 'isaac_fasoyin' ): ?>
 	<form method="POST" action = <?= $this->createUrl('casetwo/excel')?> >
 		<div class='row' style="margin-bottom:30px">
 			<div class='col-md-3'>
@@ -92,8 +92,8 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 				</select>			
 			</div>
 			
-			<div class='col-md-2'>
-				 <input type="submit" name="submit" value="Export DTA Report" class="form-control" /> 
+			<div class='col-md-3'>
+				 <input type="submit" name="submit" value="Export DTA Report" class="form-control btn btn-primary" /> 
 				
 			</div>
 		</div>

@@ -141,7 +141,7 @@
 
     <div class="row">
         <?php echo $form->labelEx($model,'source'); ?>
-        <?php echo $form->dropDownList($model,'source', array('Customer Called'=>'Customer Called','Customer SMS'=>'Customer SMS')
+        <?php echo $form->dropDownList($model,'source', array('Customer Called'=>'Customer Called','Customer SMS'=>'Customer SMS', 'Chat'=>'Chat')
             ,array('class'=>'form-control')); ?>
         <?php echo $form->error($model,'source'); ?>
     </div>

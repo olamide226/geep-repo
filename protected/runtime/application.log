@@ -547,3 +547,57 @@ Stack trace:
 REQUEST_URI=/geep/marketmoni/index.php?r=boi/admin
 HTTP_REFERER=http://localhost/geep/marketmoni/index.php?r=boi/view&id=3
 ---
+2018/05/15 18:19:41 [error] [exception.CDbException] CDbException: CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1045] Access denied for user 'olamide'@'localhost' (using password: YES) in /Library/WebServer/Documents/yii1.1.19/framework/db/CDbConnection.php:399
+Stack trace:
+#0 /Library/WebServer/Documents/yii1.1.19/framework/db/CDbConnection.php(347): CDbConnection->open()
+#1 /Library/WebServer/Documents/yii1.1.19/framework/db/CDbConnection.php(325): CDbConnection->setActive(true)
+#2 /Library/WebServer/Documents/yii1.1.19/framework/base/CModule.php(394): CDbConnection->init()
+#3 /Library/WebServer/Documents/yii1.1.19/framework/base/CApplication.php(459): CModule->getComponent('db')
+#4 /Library/WebServer/Documents/yii1.1.19/framework/db/ar/CActiveRecord.php(639): CApplication->getDb()
+#5 /Library/WebServer/Documents/yii1.1.19/framework/db/ar/CActiveRecord.php(1436): CActiveRecord->getDbConnection()
+#6 /Library/WebServer/Documents/yii1.1.19/framework/db/ar/CActiveRecord.php(1525): CActiveRecord->getTableAlias(true)
+#7 /Library/WebServer/Documents/geep-repo/protected/components/UserIdentity.php(52): CActiveRecord->findByAttributes(Array)
+#8 /Library/WebServer/Documents/geep-repo/protected/models/LoginForm.php(54): UserIdentity->authenticate()
+#9 /Library/WebServer/Documents/yii1.1.19/framework/validators/CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#10 /Library/WebServer/Documents/yii1.1.19/framework/validators/CValidator.php(201): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#11 /Library/WebServer/Documents/yii1.1.19/framework/base/CModel.php(159): CValidator->validate(Object(LoginForm), Array)
+#12 /Library/WebServer/Documents/geep-repo/protected/controllers/SiteController.php(95): CModel->validate()
+#13 /Library/WebServer/Documents/yii1.1.19/framework/web/actions/CInlineAction.php(49): SiteController->actionLogin()
+#14 /Library/WebServer/Documents/yii1.1.19/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#15 /Library/WebServer/Documents/yii1.1.19/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#16 /Library/WebServer/Documents/yii1.1.19/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /Library/WebServer/Documents/yii1.1.19/framework/web/CWebApplication.php(282): CController->run('login')
+#18 /Library/WebServer/Documents/yii1.1.19/framework/web/CWebApplication.php(141): CWebApplication->runController('site/login')
+#19 /Library/WebServer/Documents/yii1.1.19/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#20 /Library/WebServer/Documents/geep-repo/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/geep-repo/index.php?r=site/login
+HTTP_REFERER=http://localhost/geep-repo/index.php?r=site/login
+---
+2018/05/16 12:59:58 [error] [exception.CDbException] CDbException: CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/db/CDbConnection.php:399
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/db/CDbConnection.php(347): CDbConnection->open()
+#1 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/db/CDbConnection.php(325): CDbConnection->setActive(true)
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/base/CModule.php(394): CDbConnection->init()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/base/CApplication.php(459): CModule->getComponent('db')
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/db/ar/CActiveRecord.php(639): CApplication->getDb()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/db/ar/CActiveRecord.php(1436): CActiveRecord->getDbConnection()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/db/ar/CActiveRecord.php(1525): CActiveRecord->getTableAlias(true)
+#7 /Applications/XAMPP/xamppfiles/htdocs/geep-repo/protected/components/UserIdentity.php(52): CActiveRecord->findByAttributes(Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/geep-repo/protected/models/LoginForm.php(54): UserIdentity->authenticate()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/validators/CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/validators/CValidator.php(201): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#11 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/base/CModel.php(159): CValidator->validate(Object(LoginForm), Array)
+#12 /Applications/XAMPP/xamppfiles/htdocs/geep-repo/protected/controllers/SiteController.php(95): CModel->validate()
+#13 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/actions/CInlineAction.php(49): SiteController->actionLogin()
+#14 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#15 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#16 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CWebApplication.php(282): CController->run('login')
+#18 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CWebApplication.php(141): CWebApplication->runController('site/login')
+#19 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#20 /Applications/XAMPP/xamppfiles/htdocs/geep-repo/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/geep-repo/index.php?r=site/login
+HTTP_REFERER=http://localhost/geep-repo/index.php?r=site/login
+---

@@ -27,11 +27,8 @@
  ?>
   <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/main.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/form.css" />
-  <script
-			  src="http://code.jquery.com/jquery-3.3.1.min.js"
-			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-			  crossorigin="anonymous"></script>
 
+ <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery-3.3.1.min.js"></script>
   <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/modernizr-2.0.6.min.js"></script>
     <script src="<?php echo Yii::app()->theme->baseUrl; ?>/bootstrap/bootstrap.js"> </script>
     <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/js/myscript.js"></script>
@@ -48,13 +45,13 @@
             <header id="header">
 
                 <div id="logo">
-                <a href='index.php?r=site'><img src="<?php echo '/geep/marketmoni/images/ebislogo1.jpg' ;?>" class="img-thumbnail" alt='EBIS' >G.E.E.P</a>
+                <a href='index.php?r=site'><img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/ebislogo1.jpg" class="img-thumbnail" alt='EBIS' >G.E.E.P</a>
                 <?php //echo CHtml::link(CHtml::encode(Yii::app()->name),'index.php?r=boi/admin') ; ?>
                 </div>
 
                 <!-- <div id="logo"><?php //echo CHtml::image(Yii::app()->request->baseUrl.'/img/ebislogo1.jpg' ; ?></div> -->
 
-                    <?php echo CHtml::link('Generate Ticket','index.php?r=tickets/create', array('target'=>'_blank')); ?>
+                    <?php //echo CHtml::link('Generate Ticket','index.php?r=tickets/create', array('target'=>'_blank')); ?>
 
                 <nav id="mainmenu">
 

@@ -16,14 +16,14 @@
 	'enableAjaxValidation'=>false,
 ));
 $conn = Yii::app()->db;
-$sql2 = "INSERT INTO GENERATOR(create_date,time_created) VALUES(NOW(),CURRENT_TIME)";
-$sql3 = "SELECT MAX(CONCAT(DATE_FORMAT(create_date,'%Y%m%d'),LPAD(sequence,4,'0'))) AS gen from GENERATOR";
+$sql2 = "INSERT INTO generator(create_date,time_created) VALUES(NOW(),CURRENT_TIME)";
+$sql3 = "SELECT MAX(CONCAT(DATE_FORMAT(create_date,'%Y%m%d'),LPAD(sequence,4,'0'))) AS gen from generator";
 //send query to database
 $command2 = $conn->createCommand($sql2);
 $command3 = $conn->createCommand($sql3);
 $command2->query();
 $dataReader=$command3->query();
-$row=$dataReader->read()
+$row=$dataReader->read();
 
 ?>
 
@@ -58,7 +58,7 @@ $row=$dataReader->read()
 
     <div class="row">
         <?php echo $form->labelEx($model,'ticket_number'); ?>
-        <?php echo $form->numberField($model,'ticket_number',array('class'=>'form-control', 'value'=>(int) $row['gen'], 'readonly' => true)); ?>
+        <?php echo $form->numberField($model,'ticket_number',array('class'=>'form-control', 'value'=>$row['gen'], 'readonly' => true)); ?>
         <?php echo $form->error($model,'ticket_number'); ?>
     </div>
 
@@ -116,9 +116,9 @@ $row=$dataReader->read()
         <?php echo $form->dropDownList($model,'categories', array(
             'Information correct'=>'Information correct',
                 'Incorrect payment'=>'Incorrect payment',
-		'Upgrade Me'=>'Upgrade Me',
 
             'Incomplete call'=>'Incomplete call','Customer does not have info'=>'Customer does not have info',
+			'Upgrade Me'=>'Upgrade Me',
             'Payment made'=>'Payment made'),array('class'=>'form-control')); ?>
         <?php echo $form->error($model,'categories'); ?>
     </div>
@@ -148,9 +148,9 @@ $row=$dataReader->read()
     <div class="row">
         <?php echo $form->labelEx($model,'comment'); ?>
         <?php echo $form->dropDownList($model,'comment', array(
-                ""=>"",
-		"UPME - Qualified"=>"UPME - Qualified",
-		"UPME - Not Qualified"=>"UPME - Not Qualified",
+						''=>'',
+						"UPME - Qualified"=>"UPME - Qualified",
+						"UPME - Not Qualified"=>"UPME - Not Qualified",
 						"Customer wants to know if there are extra charges if prompt payment is not made as at when due"=>"Customer wants to know if there are extra charges if prompt payment is not made as at when due",
 						"Customer got a message to pay back loan that was not received"=>"Customer got a message to pay back loan that was not received",
 						"Customer cannot remember amount paid so far"=>"Customer cannot remember amount paid so far",

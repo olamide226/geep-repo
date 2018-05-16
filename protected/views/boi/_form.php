@@ -652,8 +652,8 @@
 
 
 
-    <div class="row ">
-        <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array('class'=>'btn btn-primary')); ?>
+    <div class="row buttons">
+        <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
     </div>
 
     <?php $this->endWidget(); ?>

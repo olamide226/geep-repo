@@ -7,8 +7,8 @@ return array(
 	
 	'connectionString' => 'mysql:host=localhost;dbname=geep',
 	'emulatePrepare' => true,
-	'username' => 'olamide',
-	'password' => 'root123',
+	'username' => 'root',
+	'password' => '',
 	'charset' => 'utf8',
 	
 );

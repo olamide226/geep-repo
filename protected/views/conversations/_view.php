@@ -12,9 +12,6 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('boi_id')); ?>:</b>
 	<?php echo CHtml::encode($data->boi_id); ?>
 	<br />
-	<b><?php echo CHtml::encode($data->getAttributeLabel('ticket_number')); ?>:</b>
-	<?php echo CHtml::encode($data->ticket_number); ?>
-	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('comment')); ?>:</b>
 	<?php echo CHtml::encode($data->comment); ?>

@@ -1,6 +1,6 @@
 <script>
 	function loadDoc() {
-$('.call_logs').load("/geep/marketmoni/assets/sech.php?q=" + $('#Casetwo_cust_phone_number').val().trim())
+$('.call_logs').load("<?php echo Yii::app()->theme->baseUrl ;?>/resource/sech.php?q=" + $('#Casetwo_cust_phone_number').val().trim())
 if ($('#Casetwo_cust_phone_number').val().trim().length==11){
      $(".call_logs").stop().slideToggle('600');
 	 }

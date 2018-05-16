@@ -25,12 +25,12 @@ if(Yii::app()->user->id=='admin') {
         array('label' => '(Outgoing Calls) View my Calls', 'url' => array('unacceptedloanscalls/admin')),
 		
         array('label' => 'Micro-finance Banks', 'url' => array('mfb/admin')),
-	array('label' => 'Create User', 'url' => array('user/create')),
-        
+        array('label' => '(Outgoing Calls) Unaccepted Loans', 'url' => array('unacceptedloans/admin')),
+        array('label' => '(Outgoing Calls) View my Calls', 'url' => array('unacceptedloanscalls/admin')),
 
 );
 }
-else if(Yii::app()->user->id=='ADMIN' ||strtolower(Yii::app()->user->id)== 'isaac_fasoyin') {
+else if(Yii::app()->user->id=='ADMIN' ||Yii::app()->user->id== 'Isaac_Fasoyin') {
     $this->menu = array(
 
         array('label'=>'Loan processing issues(Aggregator)', 'url'=>array('casetwo/aggregator')),
@@ -45,7 +45,8 @@ else if(Yii::app()->user->id=='ADMIN' ||strtolower(Yii::app()->user->id)== 'isaa
         array('label' => '(Outgoing Calls) View my Calls', 'url' => array('unacceptedloanscalls/admin')),
 		
         array('label' => 'Micro-finance Banks', 'url' => array('mfb/admin')),
-        
+        array('label' => '(Outgoing Calls) Unaccepted Loans', 'url' => array('unacceptedloans/admin')),
+        array('label' => '(Outgoing Calls) View my Calls', 'url' => array('unacceptedloanscalls/admin')),
        // array('label' => 'Generate Ticket', 'url' => array('tickets/create')),
     );
 }
@@ -140,6 +141,13 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 
 
 		),
+
+
+
+
+
+
+
 	),
 )); ?>
 <br/>
@@ -156,7 +164,7 @@ if(Yii::app()->user->id=='admin' || Yii::app()->user->id=='Cynthia_Onwumah' ||Yi
 ?>
 
 
-<?php if(Yii::app()->user->id=='admin' ||strtolower(Yii::app()->user->id)== 'isaac_fasoyin' ): ?>
+<?php if(Yii::app()->user->id=='admin' || Yii::app()->user->id=='Cynthia_Onwumah' ||Yii::app()->user->id== 'Isaac_Fasoyin' ): ?>
 	<div class='row'>
 		<div class='col-md-3'>
 			<?php echo CHtml::button("Export Today's Loans & Rec Report", array('submit' => array('boi/excelDaily')), ['class'=>'form-control btn btn-sm']);?>
@@ -166,7 +174,7 @@ if(Yii::app()->user->id=='admin' || Yii::app()->user->id=='Cynthia_Onwumah' ||Yi
 
 <form method="POST" action = <?= $this->createUrl('boi/excel')?> >
 
-	<?php if(Yii::app()->user->id=='admin' ||strtolower(Yii::app()->user->id)== 'isaac_fasoyin' ): ?>
+	<?php if(Yii::app()->user->id == 'admin' || Yii::app()->user->id=='Cynthia_Onwumah' ||Yii::app()->user->id== 'Isaac_Fasoyin' ): ?>
 		<div class='row' style="margin-top:30px">
 			<div class='col-md-3'>
 				<input name= 'start_date' class='form-control' type='date'></input>

@@ -21,19 +21,19 @@
 </div>
 <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
 <div data-p="170.00">
-<img data-u="image" class='img-responsive' src="/geep/marketmoni/images/cc.jpg" />
+<img data-u="image" class='img-responsive' src="<?php echo Yii::app()->theme->baseUrl ;?>/img/cc.jpg" />
 <div data-u="caption" data-t="0" style="position:absolute;top:320px;left:30px;width:500px;height:40px;background-color:rgba(255,188,5,0.8);font-family:Oswald,sans-serif;font-size:32px;font-weight:200;line-height:1.2;text-align:center;">Welcome to GEEP </div>
 </div>
 <div data-p="170.00">
-<img data-u="image" class='img-responsive'  src="/geep/marketmoni/images/1.jpg" />
+<img data-u="image" class='img-responsive'  src="<?php echo Yii::app()->theme->baseUrl ;?>/img/1.jpg" />
 <div data-u="caption" data-t="1" style="position:absolute;top:-50px;left:125px;width:500px;height:40px;background-color:rgba(255,188,5,0.8);font-family:Oswald,sans-serif;font-size:32px;font-weight:200;line-height:1.2;text-align:center;">A CRM Solution built to meet customer needs</div>
 </div>
 <div data-p="170.00">
-<img data-u="image" class='img-responsive' src="/geep/marketmoni/images/2.jpg" />
+<img data-u="image" class='img-responsive' src="<?php echo Yii::app()->theme->baseUrl ;?>/img/2.jpg" />
 <div data-u="caption" data-t="2" style="position:absolute;top:30px;left:-505px;width:500px;height:40px;background-color:rgba(255,188,5,0.8);font-family:Oswald,sans-serif;font-size:32px;font-weight:200;line-height:1.2;text-align:center;">Finger catchable right to left</div>
 </div>
 <div data-p="170.00">
-<img data-u="image" src="/geep/marketmoni/images/3.jpg" />
+<img data-u="image" src="<?php echo Yii::app()->theme->baseUrl ;?>/img/3.jpg" />
 <div data-u="caption" data-t="3" style="position:absolute;top:30px;left:30px;width:500px;height:40px;background-color:rgba(255,188,5,0.8);font-family:Oswald,sans-serif;font-size:32px;font-weight:200;line-height:1.2;text-align:center;">responsive, scale smoothly</div>
 </div>
 <div data-p="170.00">
