@@ -6,7 +6,8 @@ $this->pageTitle=Yii::app()->name;
 
 ?>
 <div class="row ">
-<h1  class="jumbotron">Welcome to GEEP<i><?php /*echo CHtml::encode(Yii::app()->name);*/ ?></i></h1>
+<h1  class="well" 
+style="text-align: center;background-color: rgba(0,0,0,0.75); color: white;">Welcome to <?php echo CHtml::encode(Yii::app()->name); ?></h1>
 <?php include 'my-slider.php'; ?>
 </div>
 
@@ -23,25 +24,4 @@ w
 the <a href="http://www.yiiframework.com/doc/">documentation</a>.
 Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
 should you have any questions.</p> -->
-<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/myscript.js"></script>
 
-<script >
-//window.onload = function () {
-
-  $('.body').css('background-image','url(/geep/marketmoni/images/2.jpg)');
-  var gallery = $('.gallery').find('img');
-  var  images = [ '/geep/marketmoni/images/cc.jpg',
-	'/geep/marketmoni/images/1.jpg',
-        '/geep/marketmoni/images/3.jpg'
-  ];
-  var i = 0;
-  setInterval(function(){
-  i = (i + 1) % images.length; //0,1,2,0,1,2,0...
-  gallery.fadeOut(function() {
-  $(this).attr('src', images[i]);
-  $(this).fadeIn();
-  });
-  },2000);
-}
-
-</script>

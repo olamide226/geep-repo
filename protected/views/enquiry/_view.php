@@ -17,13 +17,6 @@
 	<?php echo CHtml::encode($data->cust_phone_number); ?>
 	<br />
 	
-	<b><?php echo CHtml::encode($data->getAttributeLabel('agent_name')); ?>:</b>
-	<?php echo CHtml::encode($data->agent_name); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('agent_phn_number')); ?>:</b>
-	<?php echo CHtml::encode($data->agent_phn_number); ?>
-	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('date')); ?>:</b>
 	<?php echo CHtml::encode($data->date); ?>
