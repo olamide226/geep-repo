@@ -29,15 +29,12 @@
 </div>
 <div data-p="170.00">
 <img data-u="image" class = 'img-rounded' src="<?php echo Yii::app()->theme->baseUrl ;?>/img/2.jpg" />
-<div data-u="caption" data-t="10" style="position:absolute;top:25px;left:100px;width:300px;height:260px;background-color:rgba(40,177,255,0.6);font-family:Oswald,sans-serif;font-size:24px;font-weight:200;line-height:1.25;padding:15px 15px 15px 15px;box-sizing:border-box;">This is full customized content layer.<br />​<br />
-
-Everything is allowed.<br />​<br />You can insert
-
+<div data-u="caption" data-t="10" style="position:absolute;top:25px;left:100px;width:300px;height:260px;background-color:rgba(255,255,255,0.6);font-family:Oswald,sans-serif;font-size:24px;font-weight:200;line-height:1.25;padding:15px 15px 15px 15px;box-sizing:border-box;">
 <a href="/geep-repo/index.php?r=boi/admin">
 <b>Manage Customers</b>
 </a> or an image
 
-<img class = 'img-responsive' src="<?php echo Yii::app()->theme->baseUrl ;?>/img/spin" /> here.
+<img class = 'img-rounded' src="<?php echo Yii::app()->theme->baseUrl ;?>/img/ebislogo2.jpg" /> here.
 </div>
 </div>
 <div data-p="170.00">

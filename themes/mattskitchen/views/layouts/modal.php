@@ -319,3 +319,38 @@ E-mail: marketreg@boi.com.ng
 
 </div>
 </div>
+
+
+<!-- Modal7 -->
+<div id="myModal7" class="modal fade" role="dialog">
+<div class="modal-dialog">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+<h4 class="modal-title">LIST OF BANKS FOR PAY DIRECT</h4>
+</div>
+<div class="modal-body">
+<ul>
+  <li>Fidelity Bank</li>
+  <li>Heritage Bank</li>
+  <li>Sterling Bank</li>
+  <li>UBA Bank</li>
+  <li>Wema Bank</li>
+  <li>Unity Bank</li>
+  <li>GTBank</li>
+  <li>EcoBank</li>
+  <li>Jaiz Bank</li>
+  <li>Diamond Bank</li>
+  <li>Union Bank</li>
+  <li>Stanbic IBTC</li>
+  </ul>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+</div>
+
+</div>
+</div>

@@ -2,7 +2,7 @@
 $myvar = $_REQUEST['q'];
 // create database connection
 //$conn = Yii::app()->db;
-$conn = mysqli_connect('localhost','root','root123','geep');
+$conn = mysqli_connect('localhost','root','','geep');
 
 $sql = sprintf("SELECT customer_name, date,complaints, response,created_by FROM casetwo
 			WHERE cust_phone_number like '%s' ORDER BY date desc LIMIT 5", $myvar);

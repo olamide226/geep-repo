@@ -706,3 +706,95 @@ Stack trace:
 REQUEST_URI=/geep-repo/index.php?r=enquiry/index
 HTTP_REFERER=http://192.168.0.11/geep-repo/index.php?r=enquiry/create
 ---
+2018/05/19 22:03:16 [error] [php] Undefined index: start_date (/Applications/XAMPP/xamppfiles/htdocs/geep-repo/protected/controllers/BoiController.php:217)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/filters/CFilterChain.php(134): BoiController->runAction()
+#1 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/filters/CInlineFilter.php(58): BoiController->filterAccessControl()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CController.php(291): CFilterChain->run()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CController.php(265): BoiController->runActionWithFilters()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CWebApplication.php(282): BoiController->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#10 /Applications/XAMPP/xamppfiles/htdocs/geep-repo/index.php(13): CWebApplication->run()
+REQUEST_URI=/geep-repo/index.php?r=boi/excel
+in /Applications/XAMPP/xamppfiles/htdocs/geep-repo/protected/controllers/BoiController.php (217)
+in /Applications/XAMPP/xamppfiles/htdocs/geep-repo/index.php (13)
+2018/05/20 11:59:23 [error] [php] fputcsv(): Unable to create temporary file, Check permissions in temporary files directory. (/Applications/XAMPP/xamppfiles/htdocs/geep-repo/protected/extensions/ECSVExport.php:600)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/geep-repo/protected/extensions/ECSVExport.php(494): ECSVExport->_loopRows()
+#1 /Applications/XAMPP/xamppfiles/htdocs/geep-repo/protected/extensions/ECSVExport.php(390): ECSVExport->_writeData()
+#2 /Applications/XAMPP/xamppfiles/htdocs/geep-repo/protected/controllers/CasetwoController.php(241): ECSVExport->toCSV()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/actions/CInlineAction.php(49): CasetwoController->actionExcel()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/filters/CFilterChain.php(134): CasetwoController->runAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/filters/CInlineFilter.php(58): CasetwoController->filterAccessControl()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CController.php(291): CFilterChain->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CController.php(265): CasetwoController->runActionWithFilters()
+#12 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CWebApplication.php(282): CasetwoController->run()
+#13 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#14 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#15 /Applications/XAMPP/xamppfiles/htdocs/geep-repo/index.php(13): CWebApplication->run()
+REQUEST_URI=/geep-repo/index.php?r=casetwo/excel
+in /Applications/XAMPP/xamppfiles/htdocs/geep-repo/protected/extensions/ECSVExport.php (600)
+in /Applications/XAMPP/xamppfiles/htdocs/geep-repo/protected/extensions/ECSVExport.php (520)
+in /Applications/XAMPP/xamppfiles/htdocs/geep-repo/protected/extensions/ECSVExport.php (494)
+2018/05/20 12:55:44 [error] [php] Undefined variable: view (/Applications/XAMPP/xamppfiles/htdocs/geep-repo/protected/views/casetwo/create.php:22)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CController.php(872): CasetwoController->renderFile()
+#1 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CController.php(785): CasetwoController->renderPartial()
+#2 /Applications/XAMPP/xamppfiles/htdocs/geep-repo/protected/controllers/CasetwoController.php(81): CasetwoController->render()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/actions/CInlineAction.php(49): CasetwoController->actionCreate()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/filters/CFilterChain.php(134): CasetwoController->runAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/filters/CInlineFilter.php(58): CasetwoController->filterAccessControl()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CController.php(291): CFilterChain->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CController.php(265): CasetwoController->runActionWithFilters()
+#12 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CWebApplication.php(282): CasetwoController->run()
+#13 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#14 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#15 /Applications/XAMPP/xamppfiles/htdocs/geep-repo/index.php(13): CWebApplication->run()
+REQUEST_URI=/geep-repo/index.php?r=casetwo/create
+in /Applications/XAMPP/xamppfiles/htdocs/geep-repo/protected/views/casetwo/create.php (22)
+in /Applications/XAMPP/xamppfiles/htdocs/geep-repo/protected/controllers/CasetwoController.php (81)
+in /Applications/XAMPP/xamppfiles/htdocs/geep-repo/index.php (13)
+2018/05/20 13:14:20 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "search". in /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CController.php:486
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CController.php(270): CController->missingAction('search')
+#1 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CWebApplication.php(282): CController->run('search')
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CWebApplication.php(141): CWebApplication->runController('enquiry/search')
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/geep-repo/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/geep-repo/index.php?r=enquiry/search
+---
+2018/05/20 13:14:27 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "_search". in /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CController.php:486
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CController.php(270): CController->missingAction('_search')
+#1 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CWebApplication.php(282): CController->run('_search')
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/web/CWebApplication.php(141): CWebApplication->runController('enquiry/_search')
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii1.1.19/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Applications/XAMPP/xamppfiles/htdocs/geep-repo/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/geep-repo/index.php?r=enquiry/_search
+---
+2018/05/22 11:22:41 [warning] [application] Failed to set unsafe attribute "action" of "Conversations".
+in /Applications/XAMPP/xamppfiles/htdocs/geep-repo/protected/controllers/BoiController.php (60)
+in /Applications/XAMPP/xamppfiles/htdocs/geep-repo/index.php (13)
+2018/05/22 15:43:44 [warning] [application] Failed to set unsafe attribute "action" of "Conversations".
+in /Applications/XAMPP/xamppfiles/htdocs/geep-repo/protected/controllers/BoiController.php (60)
+in /Applications/XAMPP/xamppfiles/htdocs/geep-repo/index.php (13)
+2018/05/23 16:24:34 [warning] [application] Failed to set unsafe attribute "action" of "Conversations".
+in /Applications/XAMPP/xamppfiles/htdocs/geep-repo/protected/controllers/BoiController.php (60)
+in /Applications/XAMPP/xamppfiles/htdocs/geep-repo/index.php (13)
+2018/05/25 15:09:05 [warning] [application] Failed to set unsafe attribute "action" of "Conversations".
+in /Applications/XAMPP/xamppfiles/htdocs/geep-repo/protected/controllers/BoiController.php (60)
+in /Applications/XAMPP/xamppfiles/htdocs/geep-repo/index.php (13)

@@ -36,7 +36,8 @@ $this->endWidget();
                   <li><button type='button' class='btn btn-success form-control'
                   data-toggle='modal' data-target='#myModal5'>FRAUD CASE</button></li>
                   <li><button type='button' class='btn btn-success form-control'
-                  data-toggle='modal' data-target='#myModal6'>BOI INFORMATION</button></li>
+                  data-toggle='modal' data-target='#myModal6'>BOI INFORMATION</button></li><li><button type='button' class='btn btn-success form-control'
+                  data-toggle='modal' data-target='#myModal7'>BANKS FOR PAY DIRECT</button></li>
                 </ul>
                 <?php
                   // $this->widget('zii.widgets.CMenu', array(

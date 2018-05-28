@@ -10,6 +10,21 @@ $this->pageTitle=Yii::app()->name;
 style="text-align: center;background-color: rgba(0,0,0,0.75); color: white;">Welcome to <?php echo CHtml::encode(Yii::app()->name); ?></h1>
 <?php include 'my-slider.php'; ?>
 </div>
+<div class="row">
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">GEEP</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
+      <li><a href="#">Page 3</a></li>
+    </ul>
+  </div>
+</nav>
+</div>
 
 <!-- <p>Congratulations! You have successfully created your Yii application.</p>
 
