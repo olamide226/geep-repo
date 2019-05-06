@@ -61,6 +61,16 @@
 		<?php echo $form->textField($model,'source',array('size'=>45,'maxlength'=>45)); ?>
 	</div>
 
+<div class="row">
+		<?php echo $form->label($model,'call_source'); ?>
+		<?php echo $form->textField($model,'call_source',array('size'=>45,'maxlength'=>45)); ?>
+	</div>
+
+<div class="row">
+		<?php echo $form->label($model,'product_type'); ?>
+		<?php echo $form->textField($model,'product_type',array('size'=>45,'maxlength'=>45)); ?>
+	</div>
+
 	<div class="row">
 		<?php echo $form->label($model,'categories'); ?>
 		<?php echo $form->textField($model,'categories',array('size'=>60,'maxlength'=>100)); ?>

@@ -30,14 +30,14 @@ class Casetwo extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('customer_name, created_by,source, complaints, response', 'required'),
+			array('customer_name, created_by,source,call_source, complaints, response', 'required'),
 			array('customer_name', 'length', 'max'=>60),
 			array('cust_phone_number, agent_phn_number', 'length', 'max'=>11 ),
-			array('agent_name, association', 'length', 'max'=>100),
+			array('agent_name, association, call_source' ,'length', 'max'=>100),
 			array('complaints, response, other_comments, action', 'length', 'max'=>300),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, customer_name, cust_phone_number, date, association, complaints,source, response, created_by, other_comments', 'safe', 'on'=>'search'),
+			array('id, customer_name, cust_phone_number, date, association, complaints,source,call_source, response, created_by, other_comments', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -67,6 +67,7 @@ class Casetwo extends CActiveRecord
 			'response' => 'Response',
             'created_by' => 'Created By',
             'source' => 'Source',
+			'call_source'=>'Call source',
             'other_comments'=> 'Other Comments',
 			'action'=> 'Action',
 			'application_source' => 'Application Source', 
@@ -103,7 +104,8 @@ class Casetwo extends CActiveRecord
 		$criteria->compare('response',$this->response,true);
         $criteria->compare('created_by',$this->created_by,true);
         $criteria->compare('source',$this->source);
-        $criteria->compare('other_comments',$this->other_comments);
+        $criteria->compare('call_source',$this->call_source,true);
+		$criteria->compare('other_comments',$this->other_comments);
 		$criteria->compare('action',$this->action);
 		$criteria->compare('application_source',$this->application_source);
 		$criteria->compare('agent_phn_number',$this->agent_phn_number);

@@ -1,30 +1,17 @@
 <?php
 /* @var $this SiteController */
-// $this->redirect($this->createUrl('Boi/admin'));
+$this->redirect($this->createUrl('boi/admin'));
 $this->pageTitle=Yii::app()->name;
-
-
 ?>
-<div class="row ">
-<h1  class="well" 
-style="text-align: center;background-color: rgba(0,0,0,0.75); color: white;">Welcome to <?php echo CHtml::encode(Yii::app()->name); ?></h1>
-<?php include 'my-slider.php'; ?>
-</div>
-<div class="row">
-  <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">GEEP</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>
-      <li><a href="#">Page 3</a></li>
-    </ul>
-  </div>
-</nav>
-</div>
+
+<h1>Welcome to GEEP<i><?php /*echo CHtml::encode(Yii::app()->name);*/ ?></i></h1>
+<br><br>
+<a href="?r=boi/index"><button>Registered Customers</button></a>
+<br/><br/>
+<a href="?r=boi/admin"><button> Loans & Reconciliation</button></a> <span>    -    </span>
+<!--<a href="?r=casetwo/create"><button> MarketMoni Registration </button></a><span>    -    </span>  -->
+<a href="?r=casetwo/create"><button> DTA Registration </button></a><span>    -    </span>
+<a href="?r=enquiry/create"><button> Enquiries </button></a>
 
 <!-- <p>Congratulations! You have successfully created your Yii application.</p>
 
@@ -39,4 +26,3 @@ w
 the <a href="http://www.yiiframework.com/doc/">documentation</a>.
 Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
 should you have any questions.</p> -->
-

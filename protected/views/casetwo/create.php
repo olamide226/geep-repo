@@ -20,10 +20,10 @@ $this->menu=array(
 <?php 
 	
 	if($view == 'aggregator')
-		$this->renderPartial('aggregator', array('model'=>$model));
+		$this->renderPartial('aggregator', array('model'=>$model,'get_boi_rec'=>$get_boi_rec));
 	
 	elseif($view == 'dta')
-		$this->renderPartial('dta', array('model' => $model));
+		$this->renderPartial('dta', array('model' => $model,'get_boi_rec'=>$get_boi_rec));
 		
 	else
 		$this->renderPartial('_form', array('model'=>$model));

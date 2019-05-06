@@ -44,8 +44,8 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 <?php
 // create database connection
 $conn = Yii::app()->db;
-$sql = sprintf("SELECT amount, date,categories,ticket_number, comment,comment_by FROM conversations
-			WHERE member_id = '%s' ORDER BY created_on desc LIMIT 5", $model2->member_id);
+$sql = sprintf("SELECT amount, date,categories,ticket_number, comment,other_comments,comment_by FROM conversations
+			WHERE member_id = '%s' OR member_id = '%s'  ORDER BY created_on desc LIMIT 5", $model2->member_id, $model2->phone_number );
 //send query to database
 $command = $conn->createCommand($sql);
 
@@ -88,7 +88,8 @@ $command = $conn->createCommand($sql);
          <th>Ticket Number</th>
          <th>Amount Paid</th>
          <th>Comment By</th>
-         <th width="250">Comments</th>
+         <th width="125">Comments</th>
+		 <th width="125">Other comments</th>
       </tr>
 <?php
 //fetch data from db
@@ -106,12 +107,14 @@ while(($row=$dataReader->read())!==false) {
 ?>
 
       <tr>
-         <td><?php echo $row['categories']; ?></td>
+         <td><?php echo $row['categories'] ; ?></td>
 	   <td><?php $mytime = $row['date']; echo date("M jS, Y", strtotime($mytime)); ?></td>
          <td><?php echo $row['ticket_number']; ?></td>
          <td><?php echo $row['amount']; ?></td>
          <td><?php echo $row['comment_by']; ?></td>
          <td><?php echo $row['comment']; ?></td>
+		 <td><?php echo $row['other_comments']; ?></td>
+		 
       </tr>
 <?php }//} else{ echo "<h3>No Previous Record Found!!</h3>"; } ?>
    </table>

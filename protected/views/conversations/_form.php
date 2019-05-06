@@ -21,7 +21,7 @@
 
     <div class="row">
         <?php echo $form->labelEx($model,'amount'); ?>
-        <?php echo $form->numberField($model,'amount',array('class'=>'form-control', 'step'=>'0.01', 'min'=>0)); ?>
+        <?php echo $form->numberField($model,'amount',array('class'=>'form-control', 'step'=>'1', 'min'=>0)); ?>
         <?php echo $form->error($model,'amount'); ?>
     </div>
 
@@ -76,18 +76,37 @@
 			'Upgrade Me'=>'Upgrade Me',
 
             'Incomplete call'=>'Incomplete call','Customer does not have info'=>'Customer does not have info',
-            'Payment made'=>'Payment made'),array('class'=>'form-control')); ?>
+            'Payment made'=>'Payment made',
+			'BVN'=>'BVN'),array('class'=>'form-control')); ?>
         <?php echo $form->error($model,'categories'); ?>
     </div>
 
     <div class="row">
         <?php echo $form->labelEx($model,'source'); ?>
-        <?php echo $form->dropDownList($model,'source', array('Customer Called'=>'Customer Called','Customer SMS'=>'Customer SMS','Chat'=>'Chat')
+        <?php echo $form->dropDownList($model,'source', array('Customer Called'=>'Customer Called','Customer SMS'=>'Customer SMS',
+											'Chat'=>'Chat','Email'=>'Email','boi_email'=>'Email(BOI)','whatsapp'=>'WhatsApp','batch'=>'Batch')
             ,array('class'=>'form-control')); ?>
         <?php echo $form->error($model,'source'); ?>
     </div>
 
 
+    <div class="row">
+        <?php echo $form->labelEx($model,'call_source'); ?>
+        <?php echo $form->dropDownList($model,'call_source', array(
+        'ivr'=>'IVR',
+        'mobile'=>'Mobile Phone','not_call'=>'none of the above')
+            ,array('class'=>'form-control')); ?>
+        <?php echo $form->error($model,'call_source'); ?>
+    </div>
+
+    <div class="row">
+        <?php echo $form->labelEx($model,'product_type'); ?>
+        <?php echo $form->dropDownList($model,'product_type', array(
+		'marketmoni'=>'MarketMONI ',
+		'tradermoni'=>'TraderMONI',''=>'Select a Product Type..')
+            ,array('class'=>'form-control')); ?>
+        <?php echo $form->error($model,'call_source'); ?>
+    </div>
 
     <div class="row">
         <?php echo $form->labelEx($model,'phone_number'); ?>
@@ -108,33 +127,47 @@
                 ""=>"",
 				"UPME - Qualified"=>"UPME - Qualified",
 				"UPME - Not Qualified"=>"UPME - Not Qualified",
-                "Customer wants to know if there are extra charges if prompt payment is not made as at when due."=>"Customer wants to know if there are extra charges if prompt payment is not made as at when due.",
-                "Customer got a message to pay back a loan that was not received."=>"Customer got a message to pay back a loan that was not received.",
-                "Customer does not understand the text message."=>"Customer does not understand the text message.",
-                "Customer cannot remember amount paid so far."=>"Customer cannot remember amount paid so far.",
-                "There is excess charge on customer's account."=>"There is excess charge on customer's account.",
-                "Unable to contact agent."=>"Unable to contact agent.",
-                "Customer requested for BOI account details to make payment."=>"Customer requested for BOI account details to make payment.",
-                "Customer claims agent does not want to release the ATM."=>"Customer claims agent does not want to release the ATM.",
-                "Customer was not able to withdraw the money on time."=>"Customer was not able to withdraw the money on time.",
-                "Customer requested for an alert on each payment made."=>"Customer requested for an alert on each payment made.",
-                "Customer keeps on getting text messages for defaulting without having access to the loan."=>"Customer keeps on getting text messages for defaulting without having access to the loan.",
-                "Customer does not have access to the loan. Deduction ongoing from account."=>"Customer does not have access to the loan. Deduction ongoing from account.",
-                "Customer does not have access to the loan."=>"Customer does not have access to the loan.",
-                "Customer confirms owing and will pay."=>"Customer confirms owing and will pay.",
-                "Customer claims to have paid more than listed value."=>"Customer claims to have paid more than listed value.",
-                "Customer is unable to pay due to personal issues. Requires more time."=>"Customer is unable to pay due to personal issues. Requires more time.",
-                "Customer cannot remember the agent name."=>"Customer cannot remember the agent name.",
-                "Customer cannot remember association name."=>"Customer cannot remember association name.",
-                "Customer cannot remember Account number and association."=>"Customer cannot remember Account number and association.",
-                "Customer want to make online transfer."=>"Customer want to make online transfer.",
-                "Customer claimed to have completed payment but still getting alert for defaulting."=>"Customer claimed to have completed payment but still getting alert for defaulting.",
-                "Agent did not remit the money paid by the customer to BOI."=>"Agent did not remit the money paid by the customer to BOI.",
-                "Agent did not give full value of loan."=>"Agent did not give full value of loan.",
-                "Agent used customer's name to get loan."=>"Agent used customer's name to get loan.",
-                "Unable to pay into the Sterling bank account."=>"Unable to pay into the Sterling bank account.",
-                "Customer has not had access to the loan, agent has been trading with customer's loan on customer's behalf."=>"Customer has not had access to the loan, agent has been trading with customer's loan on customer's behalf.",
-                "Customer requested for an  extension of payment."=>"Customer requested for an  extension of payment.",
+				 "Customer requested for Bank details to repay Tradermoni loan"=>'Customer requested for Bank details to repay Tradermoni loan',
+'Customer claims to have transferred into a wrong account'=>'Customer claims to have transferred into a wrong account',						
+				"Customer wants to know if there are extra charges if prompt payment is not made as at when due"=>"Customer wants to know if there are extra charges if prompt payment is not made as at when due",
+						"Customer got a message to pay back loan that was not received"=>"Customer got a message to pay back loan that was not received",
+						"Customer cannot remember amount paid so far"=>"Customer cannot remember amount paid so far",
+						"There is excess charge on customer's account"=>"There is excess charge on customer's account",
+						"Unable to contact agent"=>"Unable to contact agent",
+						"Customer requested for BOI account details to make payment"=>"Customer requested for BOI account details to make payment",
+						"Customer claims Agent does not want to release their ATM card"=>"Customer claims Agent does not want to release their ATM card",
+						"Auto-deduction has commenced on customer account before customer was aware of the loan"=>"Auto-deduction has commenced on customer account before customer was aware of the loan",
+						"Customer requested for an alert on each payment made"=>"Customer requested for an alert on each payment made",
+						"Customer keeps getting defaulting SMS without having access to the loan"=>"Customer keeps getting defaulting SMS without having access to the loan",
+						"Customer does not have access to the loan"=>"Customer does not have access to the loan",
+						"Customer does not have access to the loan but deduction already ongoing from account"=>"Customer does not have access to the loan but deduction already ongoing from account",
+						"Customer confirms owing and will pay"=>"Customer confirms owing and will pay",
+						"Customer claims to have paid more than listed value"=>"Customer claims to have paid more than listed value",
+						"Customer is unable to pay due to personal issues, requests for extension of time for payment"=>"Customer is unable to pay due to personal issues, requests for extension of time for payment",
+						"Customer cannot remember the agent/association name"=>"Customer cannot remember the agent/association name",
+						"Customer cannot remember Account number and association name"=>"Customer cannot remember Account number and association name",
+						"Customer wants to know if online transfer can be made"=>"Customer wants to know if online transfer can be made",
+						"Customer claimed to have completed payment but still getting alert for defaulting"=>"Customer claimed to have completed payment but still getting alert for defaulting",
+						"Agent did not remit the money paid by the customer to BOI"=>"Agent did not remit the money paid by the customer to BOI",
+						"Agent did not give full value of loan"=>"Agent did not give full value of loan",
+						"Agent used customer's name to get loan"=>"Agent used customer's name to get loan",
+						"Unable to pay into the Sterling bank account"=>"Unable to pay into the Sterling bank account",
+						"Customer has not had access to the loan, agent has been trading with customer's loan on customer's behalf"=>"Customer has not had access to the loan, agent has been trading with customer's loan on customer's behalf",
+						"Loan is in ledger account"=>"Loan is in ledger account",
+						"Loan disbursed but not in customer account"=>"Loan disbursed but not in customer account",
+						"Customer made online transfer"=>"Customer made online transfer",
+						"Loan offer rejected"=>"Loan offer rejected",
+						"Customer no longer interested in the loan"=>"Customer no longer interested in the loan",
+						"Customer called to confirm payment"=>"Customer called to confirm payment",
+						"Customer not qualified for the loan"=>"Customer not qualified for the loan",
+						"Customer wants to know if monthly payment can be made"=>"Customer wants to know if monthly payment can be made",
+						"Customer has received the loan"=>"Customer has received the loan",
+						"Customer has made payment into BOI First Bank account"=>"Customer has made payment into BOI First Bank account",
+						"Customer account number does not exist."=>"Customer account number does not exist.",
+						"Customer wants to know if loan has been disbursed"=>"Customer wants to know if loan has been disbursed",
+						"Customer made payment through PayDirect Interswitch Platform"=>"Customer made payment through PayDirect Interswitch Platform",
+						"Customer has completed payment, wants a loan upgrade"=>"Customer has completed payment, wants a loan upgrade",
+						"Customer complained of BVN blockage"=>"Customer complained of BVN blockage",
 
             )
             ,array('class'=>'form-control')); ?>
@@ -174,3 +207,10 @@
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+<script>
+
+$('form').submit(function(){
+  console.log('Submitted once only');
+  $(this).find(':submit').attr('disabled','disabled');
+});
+</script>

@@ -22,7 +22,7 @@ $this->breadcrumbs=array(
 	'Bois'=>array('index'),
 	$model->id,
 );
-if(Yii::app()->user->id=='admin') {
+if(strtolower(Yii::app()->user->id)=='admin') {
     $this->menu = array(
         array('label' => 'List', 'url' => array('index')),
         array('label' => 'Create', 'url' => array('create')),
@@ -57,6 +57,8 @@ else{
 
 
 <div class="col-md-7    ">
+<?php echo CHtml::link('<button>Move to DTA</button>',['casetwo/dta','id'=>$model->id], ['target'=>'_blank']); ?>&nbsp;
+<?php echo CHtml::link('<button>Move to Aggregator</button>',['casetwo/aggregator','id'=>$model->id], ['target'=>'_blank']); ?>
 
 <?php
 	$this->widget('zii.widgets.CDetailView', array(

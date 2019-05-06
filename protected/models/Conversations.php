@@ -29,12 +29,12 @@ class Conversations extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('boi_id, comment, ticket_number,comment_by, date,source,categories,member_id', 'required'),
+			array('boi_id, comment, ticket_number,comment_by, product_type,date,source,call_source,categories,member_id', 'required'),
 			array('boi_id,amount', 'numerical','min'=>0),
-			array('comment_by, date, phone_number, agent_name, ticket_number, date_paid,member_id,other_comments,fraud_suspected', 'length', 'max'=>255),
+			array('comment_by, date, phone_number, agent_name, product_type, ticket_number, call_source, date_paid,member_id,other_comments,fraud_suspected', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, boi_id, ticket_number, comment, comment_by, date, created_on, phone_number,member_id,other_comments,fraud_suspected', 'safe', 'on'=>'search'),
+			array('id, boi_id, ticket_number, comment, comment_by,product_type, date, call_source,created_on, phone_number,member_id,other_comments,fraud_suspected', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -64,6 +64,8 @@ class Conversations extends CActiveRecord
 			'created_on' => 'Created On',
             'source' => 'Source',
             'categories' => 'Categories',
+			'call_source'=>'Call Source',
+			'product_type'=>'Product Type',
             'phone_number'=> 'Phone Number',
             'amount' => 'Amount customer reports to have paid, so far',
             'agent_name'=>'Agent Name',
@@ -101,6 +103,8 @@ class Conversations extends CActiveRecord
 		$criteria->compare('comment_by',$this->comment_by,true);
 		$criteria->compare('date',$this->date,true);
 		$criteria->compare('created_on',$this->created_on,true);
+		$criteria->compare('call_source',$this->call_source,true);
+		$criteria->compare('product_type',$this->product_type,true);
         $criteria->compare('phone_number',$this->phone_number,true);
         $criteria->compare('ticket_number',$this->ticket_number,true);
         $criteria->compare('agent_name',$this->agent_name,true);

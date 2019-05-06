@@ -62,6 +62,17 @@ $row=$dataReader->read();
         <?php echo $form->error($model,'ticket_number'); ?>
     </div>
 
+
+    <div class="row">
+        <?php echo $form->labelEx($model,'product_type'); ?>
+        <?php echo $form->dropDownList($model,'product_type', array(
+        "" => 'Select a Product Type..',
+        'tradermoni'=>'TraderMONI',
+        'marketmoni'=>'MarketMONI',)//,array('prompt' =>'select sth...' , )
+            ,array('class'=>'form-control')); ?>
+        <?php echo $form->error($model,'product_type'); ?>
+    </div>
+
     <div class="row">
         <?php echo $form->labelEx($model,'amount'); ?>
         <?php echo $form->numberField($model,'amount',array('class'=>'form-control', 'step'=>'0.01', 'min'=>0)); ?>
@@ -119,15 +130,28 @@ $row=$dataReader->read();
 
             'Incomplete call'=>'Incomplete call','Customer does not have info'=>'Customer does not have info',
 			'Upgrade Me'=>'Upgrade Me',
-            'Payment made'=>'Payment made'),array('class'=>'form-control')); ?>
+            'Payment made'=>'Payment made',
+			'BVN'=>'BVN'),array('class'=>'form-control')); ?>
         <?php echo $form->error($model,'categories'); ?>
     </div>
 
     <div class="row">
         <?php echo $form->labelEx($model,'source'); ?>
-        <?php echo $form->dropDownList($model,'source', array('Customer Called'=>'Customer Called','Customer SMS'=>'Customer SMS','Chat'=>'Chat')
+        <?php echo $form->dropDownList($model,'source', array(
+		'Customer Called'=>'Customer Called',
+		'Customer SMS'=>'Customer SMS','Chat'=>'Chat', 'Email'=>'Email', 'boi_email'=>'Email (BOI)','batch'=>'Batch','whatsapp'=>'Whatsapp')
             ,array('class'=>'form-control')); ?>
         <?php echo $form->error($model,'source'); ?>
+    </div>
+	
+    <div class="row">
+        <?php echo $form->labelEx($model,'call_source'); ?>
+        <?php echo $form->dropDownList($model,'call_source', array(
+		""=>'Select Call Source...',
+		'ivr'=>'IVR',
+		'mobile'=>'Mobile Phone','not_call'=>'none of the above')
+            ,array('class'=>'form-control')); ?>
+        <?php echo $form->error($model,'call_source'); ?>
     </div>
 
 
@@ -151,6 +175,8 @@ $row=$dataReader->read();
 						''=>'',
 						"UPME - Qualified"=>"UPME - Qualified",
 						"UPME - Not Qualified"=>"UPME - Not Qualified",
+                        "Customer requested for Bank details to repay Tradermoni loan"=>'Customer requested for Bank details to repay Tradermoni loan',
+'Customer claims to have transferred into a wrong account'=>'Customer claims to have transferred into a wrong account',
 						"Customer wants to know if there are extra charges if prompt payment is not made as at when due"=>"Customer wants to know if there are extra charges if prompt payment is not made as at when due",
 						"Customer got a message to pay back loan that was not received"=>"Customer got a message to pay back loan that was not received",
 						"Customer cannot remember amount paid so far"=>"Customer cannot remember amount paid so far",
@@ -187,6 +213,14 @@ $row=$dataReader->read();
 						"Customer has made payment into BOI First Bank account"=>"Customer has made payment into BOI First Bank account",
 						"Customer account number does not exist."=>"Customer account number does not exist.",
 						"Customer wants to know if loan has been disbursed"=>"Customer wants to know if loan has been disbursed",
+						"Customer made payment through PayDirect Interswitch Platform"=>"Customer made payment through PayDirect Interswitch Platform",
+						"Customer has completed payment, wants a loan upgrade"=>"Customer has completed payment, wants a loan upgrade",
+						"Customer complained of BVN blockage"=>"Customer complained of BVN blockage",
+                        "Customer was not given full value of loan"=>"Customer was not given full value of loan",
+                        "Customer wants to know how to access tradermoni loan (ATM CASH-OUT)"=>"Customer wants to know how to access tradermoni loan (ATM CASH-OUT)",
+
+
+
 
             )
             ,array('class'=>'form-control')); ?>
@@ -232,7 +266,7 @@ $row=$dataReader->read();
 
     <div class="row">
         <?php echo $form->labelEx($model,'member_id'); ?>
-        <?php echo $form->textField($model,'member_id',array('class'=>'form-control', 'value'=>$model2->member_id, 'readonly' => true)); ?>
+        <?php echo $form->textField($model,'member_id',array('class'=>'form-control', 'value'=>$model2->member_id ? $model2->member_id : $model2->phone_number, 'readonly' => true)); ?>
         <?php echo $form->error($model,'member_id'); ?>
     </div>
 
@@ -261,3 +295,11 @@ $row=$dataReader->read();
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+
+<script>
+
+$('form').submit(function(){
+  console.log('Submitted once only!');
+  $(this).find(':submit').attr('disabled','disabled');
+});
+</script>

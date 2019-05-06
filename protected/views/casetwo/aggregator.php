@@ -22,7 +22,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'cust_phone_number'); ?>
-		<?php echo $form->textField($model,'cust_phone_number',array('size'=>45,'maxlength'=>11,'class'=>'form-control','onkeyup'=>'loadDoc()')); ?>
+		<?php echo $form->textField($model,'cust_phone_number',array('size'=>45,'maxlength'=>11, 'value' => $get_boi_rec ? $get_boi_rec->phone_number : "",'class'=>'form-control','onkeyup'=>'loadDoc()')); ?>
 		<?php echo $form->error($model,'cust_phone_number'); ?>
 		<button class="btn btn-info" type="button" onclick="loadDoc()">Show/Hide Call logs</button>
 
@@ -34,7 +34,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'customer_name'); ?>
-		<?php echo $form->textField($model,'customer_name',array('size'=>60,'maxlength'=>60,'class'=>'form-control')); ?>
+		<?php echo $form->textField($model,'customer_name',array('size'=>60,'maxlength'=>60, 'value' => $get_boi_rec ? $get_boi_rec->customer_name : "",'class'=>'form-control')); ?>
 		<?php echo $form->error($model,'customer_name'); ?>
 	</div>
 
@@ -90,7 +90,7 @@
 
     <div class="row">
 		<?php echo $form->labelEx($model,'association'); ?>
-		<?php echo $form->textField($model,'association',array('size'=>60,'maxlength'=>100,'class'=>'form-control')); ?>
+		<?php echo $form->textField($model,'association',array('size'=>60,'maxlength'=>100, 'value' => $get_boi_rec ? $get_boi_rec->association : "",'class'=>'form-control')); ?>
 		<?php echo $form->error($model,'association'); ?>
 	</div>
 <!--
@@ -133,7 +133,6 @@
 "Customer keeps receiving Loan Offer SMS even after responding to it"=>"Customer keeps receiving Loan Offer SMS even after responding to it",
 "Customer got a message from BOI to correct BVN but claims BVN is correct"=>"Customer got a message from BOI to correct BVN but claims BVN is correct",
 "Customer got a message from BOI to correct BVN but does not know what to do"=>"Customer got a message from BOI to correct BVN but does not know what to do",
-"Loan offer rejected"=>"Loan offer rejected",
 "Customer not interested in the loan"=>"Customer not interested in the loan",
 "Customer did not apply for loan"=>"Customer did not apply for loan",
 "Customer is yet to get feedback message after BVN correction"=>"Customer is yet to get feedback message after BVN correction",
@@ -142,8 +141,8 @@
 "Customer complained that other members of the association has received the loan but yet to get any feedback"=>"Customer complained that other members of the association has received the loan but yet to get any feedback",
 "Customer is yet to get the loan after responding to the loan offer SMS"=>"Customer is yet to get the loan after responding to the loan offer SMS",
 "Customer has corrected account details but yet to get the loan"=>"Customer has corrected account details but yet to get the loan",
-"test" => "test",
-
+"Customer got a loan request message with wrong information"=>"Customer got a loan request message with wrong information",
+					
 
             )
             ,array('class'=>'form-control')); ?>
@@ -194,11 +193,22 @@
 
     <div class="row">
         <?php echo $form->labelEx($model,'source'); ?>
-        <?php echo $form->dropDownList($model,'source', array('Customer Called'=>'Customer Called','Customer SMS'=>'Customer SMS','Chat'=>'Chat')
+        <?php echo $form->dropDownList($model,'source', array('Customer Called'=>'Customer Called','Customer SMS'=>'Customer SMS','whatsapp'=>'WhatsApp','Email'=>'Email','boi_email'=>'Email(BOI)','Chat'=>'Chat','batch'=>'Batch')
             ,array('class'=>'form-control')); ?>
         <?php echo $form->error($model,'source'); ?>
     </div>
 
+	
+    <div class="row">
+        <?php echo $form->labelEx($model,'call_source'); ?>
+        <?php echo $form->dropDownList($model,'call_source', array(
+		''=>'Select call source...',
+		'ivr'=>'IVR',
+		'mobile'=>'Mobile Phone','not_call'=>'none of the above')
+            ,array('class'=>'form-control')); ?>
+        <?php echo $form->error($model,'call_source'); ?>
+    </div>
+	
 	<div class="row">
         <?php echo $form->labelEx($model,'action'); ?>
         <?php echo $form->textArea($model,'action',array('class'=>'form-control','maxlength'=>300)); ?>
@@ -214,3 +224,10 @@
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+<script>
+
+$('form').submit(function(){
+  console.log('Submitted once only');
+  $(this).find(':submit').attr('disabled','disabled');
+});
+</script>

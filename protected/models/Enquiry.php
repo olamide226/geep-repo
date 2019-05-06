@@ -31,15 +31,15 @@ class Enquiry extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('customer_name, source, complaints, response, created_by', 'required'),
-			array('customer_name, created_by', 'length', 'max'=>100),
+			array('customer_name, source,call_source, complaints,cust_phone_number, response, created_by', 'required'),
+			array('customer_name,call_source, created_by', 'length', 'max'=>100),
 			array('cust_phone_number', 'length', 'max'=>11),
-			array('association', 'length', 'max'=>100),
+			array('cust_phone_number', 'numerical', 'min'=>0),
 			//array('agent_phn_number', 'length', 'max'=>11),
-			array('complaints, response,other_comments, action', 'length', 'max'=>300),
+			array('complaints, association,response,other_comments, action', 'length', 'max'=>300),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, customer_name, phone_number, date, association, complaints,other_comments, response, created_by action', 'safe', 'on'=>'search'),
+			array('id, customer_name,call_source, cust_phone_number, date, association, complaints,other_comments, response, created_by action', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -69,6 +69,7 @@ class Enquiry extends CActiveRecord
 			'response' => 'Response',
 			'created_by' => 'Created By',
             'source' => 'Source',
+			'call_source'=>'Call source',
             'other_comments'=>'Other Comments',
 			'action'=>'Action',
 			
@@ -100,7 +101,7 @@ class Enquiry extends CActiveRecord
 		$criteria->compare('association',$this->association,true);
 		$criteria->compare('complaints',$this->complaints,true);
         $criteria->compare('other_comments',$this->other_comments,true);
-
+		$criteria->compare('call_source',$this->call_source,true);	
 		$criteria->compare('response',$this->response,true);
 		$criteria->compare('created_by',$this->created_by,true);
         $criteria->compare('source',$this->source);

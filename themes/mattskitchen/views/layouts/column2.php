@@ -16,10 +16,22 @@
                     $this->widget('zii.widgets.CMenu', array(
                         'items'=>$this->menu,
                         'htmlOptions'=>array('class'=>'operations'),
-                    ));
+                    )); ?>
+         <?php if ($_GET['r']=='boi/admin' && (strtolower(Yii::app()->user->id)=='admin' || strtolower(Yii::app()->user->id)=='isaac_fasoyin')): ?>
+  
+<hr><a class="btn btn-success" id = 'annB'>Enter announcement</a>
+<div id="ann" style="display: none;">
+
+    <form method="post" action="index.php?r=boi/admin"><textarea class="form-control" rows="5" name="mytext" id="announcer"></textarea>
+    <button id='sub' type="submit" "class="btn btn-success btn-sm">Submit</button>
+    </form>
+</div>
+
+<?php endif ?>
+<?php
 $this->endWidget();
                 }
-                if ($_GET['r']=='boi/view' || $_GET['r']=='enquiry/create' || $_GET['r']=='casetwo/dta' || $_GET['r']=='casetwo/aggregator') {
+                if ($_GET['r']=='boi/view' || $_GET['r']=='enquiry/create' || $_GET['r']=='tradermoni/create' || $_GET['r']=='casetwo/dta' || $_GET['r']=='casetwo/aggregator' || $_GET['r']=='site/base') {
                   $this->beginWidget('zii.widgets.CPortlet', array(
                       'title'=>'Knowledge Base',
                   )); ?>
@@ -36,8 +48,13 @@ $this->endWidget();
                   <li><button type='button' class='btn btn-success form-control'
                   data-toggle='modal' data-target='#myModal5'>FRAUD CASE</button></li>
                   <li><button type='button' class='btn btn-success form-control'
-                  data-toggle='modal' data-target='#myModal6'>BOI INFORMATION</button></li><li><button type='button' class='btn btn-success form-control'
+                  data-toggle='modal' data-target='#myModal6'>BOI INFORMATION</button></li>
+                  <li><button type='button' class='btn btn-success form-control'
                   data-toggle='modal' data-target='#myModal7'>BANKS FOR PAY DIRECT</button></li>
+                  <li><button type='button' class='btn btn-success form-control'
+                  data-toggle='modal' data-target='#myModal8'>PAYMENTS USING ATM</button></li>
+                  <li><button type='button' class='btn btn-success form-control'
+                  data-toggle='modal' data-target='#myModal9'>TRADERMONI</button></li>
                 </ul>
                 <?php
                   // $this->widget('zii.widgets.CMenu', array(
@@ -53,14 +70,10 @@ $this->endWidget();
                   // ));
                   $this->endWidget();
 
-
-
-
-
-
                 }
                 ?>
 <?php include 'modal.php'; ?>
+
 
             </aside><!-- sidebar -->
         </div>

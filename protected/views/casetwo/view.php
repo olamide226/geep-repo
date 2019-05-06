@@ -6,7 +6,7 @@ $this->breadcrumbs=array(
 	'Market Moni'=>array('index'),
 	$model->id,
 );
-if(Yii::app()->user->id=='admin' ) {
+if(strtolower(Yii::app()->user->id)=='admin' ) {
     $this->menu = array(
         //array('label' => 'List MarketMoni Registrations', 'url' => array('index')),
        array('label' => 'Loan Processing issue(DTA))', 'url' => array('casetwo/dta')),

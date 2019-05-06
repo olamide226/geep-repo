@@ -8,47 +8,68 @@ $this->breadcrumbs=array(
 );
 */
 
-if(Yii::app()->user->id=='admin') {
+if (isset($_POST['mytext'])) {
+    $conn = Yii::app()->db;
+    $temp = $_POST['mytext'];
+$sql = "UPDATE announcement SET info = '$temp' WHERE id=1 ";
+//send query to database
+$command = $conn->createCommand($sql);
+$command->query();
+}
+if(strtolower(Yii::app()->user->id)=='admin') {
     $this->menu = array(
 
         array('label' => 'List Customers', 'url' => array('index')),
-        array('label' => 'Create Customers', 'url' => array('create')),
         array('label'=>'Loan processing issues(Aggregator)', 'url'=>array('casetwo/aggregator')),
 		array('label'=>'Loan processing issues(DTA)', 'url'=>array('casetwo/dta')),
 		array('label' => 'Loan Reconciliation', 'url' => array('boi/admin')),
+        array('label' => 'TraderMONI', 'url' => array('tradermoni/create')),
 		array('label' => 'Enquiries', 'url' => array('enquiry/create')),
 		array('label' => 'Fraud', 'url' => array('fraud/create')),
 		array('label'=>'kwikCash', 'url'=>array('kwikcash/create')),
-	
+
 		array('label'=>'My Loans & Rec comments', 'url'=>array('conversations/admin')),
         array('label' => '(Outgoing Calls) Unaccepted Loans', 'url' => array('unacceptedloans/admin')),
         array('label' => '(Outgoing Calls) View my Calls', 'url' => array('unacceptedloanscalls/admin')),
-		
+
         array('label' => 'Micro-finance Banks', 'url' => array('mfb/admin')),
         array('label' => '(Outgoing Calls) Unaccepted Loans', 'url' => array('unacceptedloans/admin')),
         array('label' => '(Outgoing Calls) View my Calls', 'url' => array('unacceptedloanscalls/admin')),
+        array('label'=>'Tradermoni Outgoing Calls', 'url'=>array('tradermoniOutgoing/admin')),
+
 
 );
 }
-else if(Yii::app()->user->id=='ADMIN' ||Yii::app()->user->id== 'Isaac_Fasoyin') {
+else if(strtolower(Yii::app()->user->id)== 'isaac_fasoyin') {
     $this->menu = array(
 
         array('label'=>'Loan processing issues(Aggregator)', 'url'=>array('casetwo/aggregator')),
 		array('label'=>'Loan processing issues(DTA)', 'url'=>array('casetwo/dta')),
 		array('label' => 'Loan Reconciliation', 'url' => array('boi/admin')),
+        array('label' => 'TraderMONI', 'url' => array('tradermoni/create')),
 		array('label' => 'Enquiries', 'url' => array('enquiry/create')),
 		array('label' => 'Fraud', 'url' => array('fraud/create')),
 		array('label'=>'kwikCash', 'url'=>array('kwikcash/create')),
-	
+
 		array('label'=>'My Loans & Rec comments', 'url'=>array('conversations/admin')),
         array('label' => '(Outgoing Calls) Unaccepted Loans', 'url' => array('unacceptedloans/admin')),
         array('label' => '(Outgoing Calls) View my Calls', 'url' => array('unacceptedloanscalls/admin')),
-		
+        array('label'=>'Tradermoni Outgoing Calls', 'url'=>array('tradermoniOutgoing/admin')),
+
         array('label' => 'Micro-finance Banks', 'url' => array('mfb/admin')),
-        array('label' => '(Outgoing Calls) Unaccepted Loans', 'url' => array('unacceptedloans/admin')),
-        array('label' => '(Outgoing Calls) View my Calls', 'url' => array('unacceptedloanscalls/admin')),
-       // array('label' => 'Generate Ticket', 'url' => array('tickets/create')),
-    );
+
+        array('label'=>'Tradermoni vs Marketmoni (Differences)', 'url'=>array('site/base')),
+        // array('label' => 'Generate Ticket', 'url' => array('tickets/create')),
+    );?>
+
+<!-- <button id = 'annB'>Enter announcement</button>
+<div id="ann" style="display: none;">
+
+    <input type="text" id="announcer" class='form-control' placeholder="leave blank to clear all Notices">
+    <button id='sub' class="btn btn-primary">Submit</button>
+</div> -->
+
+<?php
 }
 else{
     $this->menu = array(
@@ -56,13 +77,16 @@ else{
 		array('label'=>'Loan processing issues(Aggregator)', 'url'=>array('casetwo/aggregator')),
 		array('label'=>'Loan processing issues(DTA)', 'url'=>array('casetwo/dta')),
 		array('label' => 'Loan Reconciliation', 'url' => array('boi/admin')),
+        array('label' => 'TraderMONI', 'url' => array('tradermoni/create')),
 		array('label' => 'Enquiries', 'url' => array('enquiry/create')),
 		array('label' => 'Fraud', 'url' => array('fraud/create')),
 		array('label'=>'kwikCash', 'url'=>array('kwikcash/create')),
-	
+
 		array('label'=>'My Loans & Rec comments', 'url'=>array('conversations/admin')),
         array('label' => '(Outgoing Calls) Unaccepted Loans', 'url' => array('unacceptedloans/admin')),
         array('label' => '(Outgoing Calls) View my Calls', 'url' => array('unacceptedloanscalls/admin')),
+        array('label'=>'Tradermoni Outgoing Calls', 'url'=>array('tradermoniOutgoing/create')),
+        array('label'=>'Tradermoni vs Marketmoni (Differences)', 'url'=>array('site/base')),
     );
 }
 Yii::app()->clientScript->registerScript('search', "
@@ -78,13 +102,21 @@ $('.search-form form').submit(function(){
 });
 ");
 ?>
+<marquee ><h3><?php
+$sql = "SELECT info FROM announcement WHERE id=1 ";
+//send query to database
+$conn = Yii::app()->db;
+$command = $conn->createCommand($sql);
+$command->query();
+$dataReader = $command->query();
+$row=$dataReader->read();
+if (!empty($row)) {
+    echo $row['info'];
 
+}
+?></h3></marquee>
 <h1>Manage Customers</h1>
 
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
 
 
 <br/>
@@ -141,13 +173,6 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 
 
 		),
-
-
-
-
-
-
-
 	),
 )); ?>
 <br/>
@@ -164,7 +189,7 @@ if(Yii::app()->user->id=='admin' || Yii::app()->user->id=='Cynthia_Onwumah' ||Yi
 ?>
 
 
-<?php if(Yii::app()->user->id=='admin' || Yii::app()->user->id=='Cynthia_Onwumah' ||Yii::app()->user->id== 'Isaac_Fasoyin' ): ?>
+<?php if(strtolower(Yii::app()->user->id)=='admin' ||strtolower(Yii::app()->user->id)== 'isaac_fasoyin' ): ?>
 	<div class='row'>
 		<div class='col-md-3'>
 			<?php echo CHtml::button("Export Today's Loans & Rec Report", array('submit' => array('boi/excelDaily')), ['class'=>'form-control btn btn-sm']);?>
@@ -174,24 +199,29 @@ if(Yii::app()->user->id=='admin' || Yii::app()->user->id=='Cynthia_Onwumah' ||Yi
 
 <form method="POST" action = <?= $this->createUrl('boi/excel')?> >
 
-	<?php if(Yii::app()->user->id == 'admin' || Yii::app()->user->id=='Cynthia_Onwumah' ||Yii::app()->user->id== 'Isaac_Fasoyin' ): ?>
+	<?php if(strtolower(Yii::app()->user->id) == 'admin'  ||strtolower(Yii::app()->user->id)== 'isaac_fasoyin' ): ?>
 		<div class='row' style="margin-top:30px">
 			<div class='col-md-3'>
 				<input name= 'start_date' class='form-control' type='date'></input>
 			</div>
-			
+
 			<div class='col-md-3'>
 				<input name="end_date" class='form-control' type='date' ></input>
 			</div>
-			
+
 			<div class='col-md-3'>
-				 <input type="submit" name="submit" value="Generate Report" class="form-control" /> 
-				
+				 <input type="submit" name="submit" value="Generate Report" class="form-control" />
+
 			</div>
 		</div>
 	<?php endif; ?>
 </form>
 
+<script>
 
 
+  $('#annB').click(function () {
+      $('#ann').slideToggle();
+  });
 
+</script>

@@ -62,12 +62,12 @@ class CasetwoController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Casetwo;
+		// $get_boi_rec=Boi::model()->findByPk($id);
 
        // $model->date =Yii::app()->user->id;
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+		$model = new Casetwo;
 		if(isset($_POST['Casetwo']))
 		{
 			$model->attributes=$_POST['Casetwo'];
@@ -79,6 +79,7 @@ class CasetwoController extends Controller
 
 		$this->render('create',array(
 			'model'=>$model,
+			// 'get_boi_rec'=>$get_boi_rec,
 		));
 	}
 	
@@ -87,8 +88,9 @@ class CasetwoController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionAggregator()
+	public function actionAggregator($id=0)
 	{
+		$get_boi_rec =Boi::model()->findByPk($id);
 		$model = new Casetwo;
 
        // $model->date =Yii::app()->user->id;
@@ -106,7 +108,9 @@ class CasetwoController extends Controller
 		}
 
 		$this->render('create',array(
-			'model'=>$model, 'view' => 'aggregator'
+			'model'=>$model,
+			'get_boi_rec'=>$get_boi_rec,
+			 'view' => 'aggregator'
 		));
 	}
 
@@ -115,8 +119,9 @@ class CasetwoController extends Controller
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
 	 
-	 public function actionDtA()
+	 public function actionDtA($id=0)
 	{
+		$get_boi_rec =Boi::model()->findByPk($id); 
 		$model = new Casetwo;
 
        // $model->date =Yii::app()->user->id;
@@ -134,7 +139,9 @@ class CasetwoController extends Controller
 		}
 
 		$this->render('create',array(
-			'model'=>$model, 'view' => 'dta'
+			'model'=>$model,
+			'get_boi_rec'=>$get_boi_rec,
+			 'view' => 'dta'
 		));
 	}
 		

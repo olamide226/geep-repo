@@ -54,6 +54,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
         'member_id',
         'created_on',
 		'fraud_suspected',
+		'product_type',
 
 		/*
 		'date',

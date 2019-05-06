@@ -354,3 +354,87 @@ E-mail: marketreg@boi.com.ng
 
 </div>
 </div>
+
+
+<!-- Modal8 -->
+<div id="myModal8" class="modal fade" role="dialog">
+<div class="modal-dialog">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+<h4 class="modal-title">STEPS TO MAKE PAYMENTS USING THE ATM</h4>
+</div>
+<div class="modal-body">
+<ul>
+  <li>Insert your ATM card and select the quickteller option</li>
+  <li>Select ‘Paybills’</li>
+  <li>Select ‘Others’</li>
+  <li>Enter ‘04338401’ as the Biller code.</li>
+  <li>Enter the phone number used in requesting for the loan for customer reference number </li>
+  <li>Confirm payment</li>
+  <li>You will receive a confirmation message for your payment.</li>
+  
+  </ul>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+</div>
+
+</div>
+</div>
+
+
+<!-- Modal9 -->
+<div id="myModal9" class="modal fade" role="dialog">
+<div class="modal-dialog">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+<h4 class="modal-title">TraderMONI</h4>
+</div>
+<div class="modal-body">
+<h5><b>WHAT IS TRADERMONI?</b></h5>
+<p>
+This is a loan given to small scale traders, food sellers, okada riders or any small-scale business by the Federal Government to grow their business.
+</p>
+<ul><b>Loan products:</b><li>₦10,000</li>
+    <li>₦15,000</li>
+    <li>₦20.000</li>
+    <li>₦25,000</li>
+</ul>
+<p><b>Loan Tenure:</b>  months</p>
+<p>
+  <b>Administrative fee:</b> 2.5% of amount collected. <br>
+    For <b>₦10,000</b> administrative fee is <b>₦250</b> <br>
+    For <b>₦15,000</b> administrative fee is <b>₦375</b> <br>
+    For <b>₦20,000</b> administrative fee is <b>₦500</b> <br>
+    For <b>₦25,000</b> administrative fee is <b>₦625</b> <br>
+
+</p>
+<p>
+  <b>Loan terms:</b> When you payback the first loan given within 6 months you will be given another loan within 2 days of repayment
+</p>
+<p><b>NOTE: If you pay your first ₦10,000 within 6 months, you will qualify to borrow ₦15,000, <br>
+             After repayment of ₦15,000 within 6 months, you will qualify to borrow ₦20,000, <br>
+             After repayment of ₦20,000 within 6 months, you will qualify to borrow ₦25,000.</b>
+</p>
+<p><b>LOAN REPAYMENT:</b> <br> 
+  <b>PLATFORM</b> - INTERSWITCH PAY DIRECT <br>
+  <b>SCHEME</b> - BOI-GEEP-MARKET MONI <br>
+  <b>BANKS-</b> Fidelity, Wema bank, GTB, UBA, Heritage bank, Union bank, Jaiz bank, Eco bank, Stanbic 
+bank and Sterling bank.
+</p>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+</div>
+
+</div>
+</div>
+

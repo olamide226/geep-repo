@@ -129,11 +129,17 @@
 				"Customer has responded to the loan offer SMS"=>"Customer has responded to the loan offer SMS" ,
 				"Customer got a message from BOI to correct BVN but claims BVN is correct"=> "Customer got a message from BOI to correct BVN but claims BVN is correct",
 				"Customer got a message from BOI to correct BVN but does not know what to do."=> "Customer got a message from BOI to correct BVN but does not know what to do.",
-				"Loan offer rejected."=>"Loan offer rejected.",
 				"Customer not interested in the loan."=>"Customer not interested in the loan.",
 				"Customer did not apply for loan."=>"Customer did not apply for the loan.",
 				"Customer is yet to get feedback message after BVN correction."=>"Customer is yet to get feedback message after BVN correction.",
-
+				"Customer's bank is not on the listed banks eligible for application"=>"Customer's bank is not on the listed banks eligible for application",
+					"Unable to access customer's details with the phone number provided."=>"Unable to access customer's details with the phone number provided.",
+					"Customer complained that other members of the association has received the loan but yet to get any feedback."=>"Customer complained that other members of the association has received the loan but yet to get any feedback.",
+					"Customer is yet to get the loan after responding to the loan offer SMS."=>"Customer is yet to get the loan after responding to the loan offer SMS.",
+					"Customer has corrected account details but yet to get the loan."=>"Customer has corrected account details but yet to get the loan.",
+					"Customer is having difficulty uploading MOU and Excel Sheet."=>"Customer is having difficulty uploading MOU and Excel Sheet.",
+					"Customer got a loan request message with wrong information"=>"Customer got a loan request message with wrong information",
+					
 
             )
             ,array('class'=>'form-control')); ?>
@@ -156,11 +162,22 @@
 
     <div class="row">
         <?php echo $form->labelEx($model,'source'); ?>
-        <?php echo $form->dropDownList($model,'source', array('Customer Called'=>'Customer Called','Customer SMS'=>'Customer SMS','Chat'=>'Chat')
+        <?php echo $form->dropDownList($model,'source', array('Customer Called'=>'Customer Called','Customer SMS'=>'Customer SMS',
+		'boi_email'=>'Email(BOI)','Email'=>'Email','whatsapp'=>'WhatsApp','Chat'=>'Chat','batch'=>'Batch')
             ,array('class'=>'form-control')); ?>
         <?php echo $form->error($model,'source'); ?>
     </div>
 
+	
+    <div class="row">
+        <?php echo $form->labelEx($model,'call_source'); ?>
+        <?php echo $form->dropDownList($model,'call_source', array(
+		'ivr'=>'IVR',
+		'mobile'=>'Mobile Phone','not_call'=>'none of the above')
+            ,array('class'=>'form-control')); ?>
+        <?php echo $form->error($model,'call_source'); ?>
+    </div>
+	
 	<div class="row">
         <?php echo $form->labelEx($model,'action'); ?>
         <?php echo $form->textArea($model,'action',array('class'=>'form-control','maxlength'=>300)); ?>
@@ -175,3 +192,10 @@
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+<script>
+
+$('form').submit(function(){
+  console.log('Submitted once only');
+  $(this).find(':submit').attr('disabled','disabled');
+});
+</script>
